@@ -381,7 +381,7 @@ details.oops ul{margin:8px 0 2px;padding-left:18px}details.oops li{font-size:14.
 .big3 button.on.y{border-color:var(--ok);background:var(--ok-t)}
 .big3 button.on.p{border-color:var(--y);background:var(--y-t)}
 .big3 button.on.n{border-color:var(--no);background:var(--no-t)}
-.big3 button.on.x{border-color:var(--c-t2);background:var(--c-t)}
+.big3 button.on.nx{border-color:var(--c-t2);background:var(--c-t)}
 .big3 small{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
 .mini-h{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--rule);border-radius:18px;padding:10px 12px;margin:6px 0}
 .mini-h b{display:block;font-size:15.5px;line-height:1.25}
@@ -1226,6 +1226,83 @@ body.home::after{background:linear-gradient(rgba(244,239,228,0),#F4EFE4 72%)}
 .pr__dots i.on{border:0;background:var(--ok)}
 .safe{margin-top:12px;background:#FFF7F5;border:1px solid #F0C5BE;border-radius:14px;padding:9px 12px;font-size:13.5px;line-height:1.45;color:#5A3A33}
 .safe small{display:block;font-size:10.5px;letter-spacing:.1em;font-weight:700;color:#B5402F;margin-bottom:2px}
+
+/* =====================================================================
+   TQ19 · bóng thẻ nhẹ · thanh dưới ấm, nhỏ 10% · chữ nâu than · nút gọn
+   ===================================================================== */
+:root{
+  --ink:#2B2622; --ink-2:#5C544B; --muted:#756D61;
+  --sh:0 8px 18px -14px rgba(60,44,26,.32);
+  --sand:#F0E6D2; --sand-d:#E3D4B4;
+}
+/* 1 · bóng thẻ: một lớp ngắn, mờ, tông ấm (bỏ vệt dài phía dưới) */
+.ct{box-shadow:inset 0 0 0 7px #FFFDF7,inset 0 0 0 8.5px var(--frame),0 8px 16px -11px rgba(60,44,26,.34),0 1px 4px -1px rgba(60,44,26,.16)}
+.master .ct{box-shadow:inset 0 0 0 7px #FFFDF7,inset 0 0 0 8.5px var(--l3),0 0 0 4px rgba(227,169,22,.25),0 8px 16px -11px rgba(60,44,26,.34)}
+.tkb2{box-shadow:0 8px 16px -11px rgba(60,44,26,.34),0 1px 4px -1px rgba(60,44,26,.16)}
+.tkb2.lv3{box-shadow:0 0 0 3px var(--l3),0 8px 16px -11px rgba(60,44,26,.34)}
+.ckb.done{box-shadow:0 6px 14px -12px rgba(60,44,26,.4)}
+/* 3-5 · thanh điều hướng: nền giấy ấm, không viền, nhỏ lại ~10% */
+.abar{width:min(396px,calc(100vw - 20px))}
+.tabs3{padding:4px;background:rgba(251,248,242,.84);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border:0;box-shadow:0 6px 16px -14px rgba(60,44,26,.4)}
+.tabs3 button{height:49px;font-size:10px;gap:1px;color:#8A8274}
+.tabs3 button svg{width:22px;height:22px}
+.tabs3 button.on{background:var(--sand);box-shadow:none;color:var(--c-d)}
+/* 7 · nút đóng dấu: biểu tượng con dấu, mờ, hài hòa với nút vàng */
+.hold.tap svg.sti{width:29px;height:29px;color:rgba(95,62,0,.55);pointer-events:none}
+.hold.tap:active svg.sti{color:rgba(95,62,0,.8)}
+/* nút lật: chỉ biểu tượng */
+.flipb{width:40px;height:40px;padding:0;justify-content:center;gap:0;color:var(--ink-2)}
+.flipb svg{width:19px;height:19px}
+/* công tắc âm thanh: nút loa tròn, không giống công tắc iOS */
+.sndt{font-size:12.5px;color:var(--muted);margin:0 10px 0 auto;white-space:nowrap}
+.sndb{position:relative;width:42px;height:42px;flex:none;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;padding:0;background:var(--c-t);color:var(--c-d);transition:background .2s,color .2s,transform .15s}
+.sndb svg{width:22px;height:22px}
+.sndb:active{transform:scale(.94)}
+.sndb.off{background:var(--sand);color:#8A8274}
+.sndb.off::after{content:"";position:absolute;width:25px;height:2.6px;border-radius:2px;background:currentColor;transform:rotate(-45deg);box-shadow:0 0 0 1.5px var(--sand)}
+/* 11 · mở màn hình ghi chú mượt hơn: bỏ làm mờ nền, chỉ chuyển động transform/opacity */
+.ov{backdrop-filter:none;-webkit-backdrop-filter:none;animation-duration:.2s}
+.sheet{animation-duration:.32s;will-change:transform,opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+@media (prefers-reduced-motion:reduce){ .sheet,.ov{animation:none!important} }
+
+/* ===== TQ20 · nhịp thẻ: hằng ngày / khi gặp dịp ===== */
+.rhyrow{display:flex;gap:8px;margin:2px 0 6px}
+.rhyrow button{flex:1;text-align:left;border:1.5px solid var(--rule);background:#fff;border-radius:14px;padding:10px 12px;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.rhyrow button b{font-size:14px}
+.rhyrow button small{font-size:12px;color:var(--muted);line-height:1.35}
+.rhyrow button.on{background:var(--sand);border-color:var(--sand-d)}
+.rhyrow button.on b{color:var(--c-d)}
+
+/* ===== TQ21 · thư viện gọn, nhắc sao lưu ===== */
+.fchips{display:flex;gap:6px;overflow-x:auto;margin:14px -2px 6px;padding:2px;-webkit-overflow-scrolling:touch}
+.fchips button{flex:none;border:1.5px solid var(--rule);background:#fff;border-radius:999px;padding:6px 13px;font:inherit;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.fchips button.on{background:var(--sand);border-color:var(--sand-d);color:var(--c-d)}
+.agrp{margin:10px 0 0;background:#fff;border:1px solid var(--rule);border-radius:18px;padding:4px 12px 6px;overflow:hidden}
+.agh{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;padding:8px 0 6px;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.agh .deck__h,.agh .hi{flex:none}
+.ag__t{flex:1;min-width:0;display:flex;flex-direction:column}
+.ag__t b{font-size:15.5px;line-height:1.3}
+.ag__t small{font-size:12.5px;color:var(--muted)}
+.agh>svg{width:18px;height:18px;color:#A79F8F;flex:none;transition:transform .25s var(--ease)}
+.agh.open>svg{transform:rotate(180deg)}
+.agrp .sg__bar{margin:0 0 4px}
+.agrp .slist{animation:fade .2s var(--ease);background:none;border:0;box-shadow:none;border-radius:0;padding:0;margin:0}
+.lchip{flex:none;font-style:normal;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:#EEF0F4;color:var(--muted)}
+.lchip.on{background:var(--c-t);color:var(--c-d)}
+.lchip.keep{background:var(--ok-t);color:#17804A}
+.lchip.todo{background:#F7E6D6;color:#A5521C}
+.srow .sr__b{flex:1;min-width:0}
+.srow .sr__b b{font-size:15.5px;line-height:1.35;white-space:normal}
+.gear .dot.red{background:#DE3F35}
+.bkcard{background:#FFF3EC;border:1px solid #F3D3BE;border-radius:18px;padding:12px 14px;margin:6px 0 4px}
+.bkcard b{color:#A5391F}
+.bkcard p{margin:4px 0 10px;font-size:14px;color:var(--ink-2)}
+
+/* ===== TQ22 · hội thoại hai phía, mặt sau thẻ gọn ===== */
+.say--r{flex-direction:row-reverse}
+.say--r .say__b{border-radius:20px 20px 6px 20px}
+.poem.ben{padding:6px 2px 4px}
+.poem.ben span{font-size:15.5px;line-height:1.55;font-style:normal;text-align:center}
 </style>
 </head>
 <body>
@@ -1238,7 +1315,7 @@ body.home::after{background:linear-gradient(rgba(244,239,228,0),#F4EFE4 72%)}
    KAIZEN MỖI NGÀY · TQ02
    Một file HTML, dữ liệu lưu trong trình duyệt của từng máy.
    ========================================================= */
-var APP_VER = 'TQ18';
+var APP_VER = 'TQ24';
 var APP_NAME = 'Shin routine';
 var KEY = 'kzmn-data', KEY_DEMO = 'kzmn-demo', KEY_MODE = 'kzmn-mode';
 var DEMO_CLASS = 'DEMO-KZ';
@@ -1246,6 +1323,7 @@ var MAX_ACTIVE = 5;
 /* Ba cấp thẻ: số ngày cần làm ở mỗi cấp, người xác nhận để lên cấp tiếp theo */
 var LV_NAME = ['', 'Tập sự', 'Làm quen', 'Vững tay'];
 var LV_NEED = [0, 7, 14, 30];
+var LV_NEED_D = [0, 3, 6, 12]; /* TQ20: nhịp “khi gặp dịp” đếm theo lần */
 var LV_COL = ['', '#D39A6A', '#A7B3C6', '#F4B63B'];
 
 /* Combo của chương trình: chỉ in trong nhật ký PDF cho thầy cô, không hiện cho học viên */
@@ -1269,7 +1347,8 @@ var EV_GENERIC = {q:'Bạn làm ở đâu?', o:['Ở lớp','Ở ký túc xá','
 
 /* ---------- 20 hành động gốc ----------
    full:true  = có hướng dẫn đầy đủ (Phiên 2: cả nhóm 1)
-   cond:true  = chỉ làm khi gặp tình huống, có nút “Hôm nay không gặp dịp” */
+   cond:true  = nhịp “khi gặp dịp”: tính theo số lần, có nút “Không gặp dịp” (TQ20)
+   mk         = gợi ý cách tạo dịp (chữ mới, chờ duyệt) */
 var HABITS = [
  /* ===== Nhóm 1 · Tác phong và kỷ luật ===== */
  {id:'chao', poem:['Chào trước một câu','Cười trước một lần','Người lạ thành thân','Việc gì cũng thuận'], kase:{t:'Được tiễn ra sân bay', s:'Một nhóm thực tập sinh lần nào đi siêu thị cũng lễ phép chào bác nhân viên và xếp lại hàng đúng chỗ. Ngày các bạn về nước, bác đóng cửa hàng sớm một tiếng để ra sân bay tiễn.', l:'Lời chào mỗi ngày là cách người Nhật nhớ đến bạn.'}, who:['người ai cũng muốn làm cùng', 'người tươi tắn, dễ gần'], g:1, s:'Chào hỏi', t:'Chào trước, cười trước', full:true, combos:['C01','C12','C18'],
@@ -1356,7 +1435,7 @@ var HABITS = [
         ex:'Cảm ơn lại vào hôm sau cho thấy bạn còn nhớ lòng tốt của người ta. Quà không thay được một lời cảm ơn trực tiếp.'},
   prov:{j:'情けは人の為ならず', r:'Nasake wa hito no tame narazu', v:'Tử tế với người, điều tốt sẽ quay về mình.'}},
 
- {id:'xinloi', poem:['Sai thì nhận ngay','Bỏ câu “tại vì”','Nói rõ sửa gì','Niềm tin quay về'], who:['người dám nhận trách nhiệm', 'người được tin lại'], g:1, s:'Nhận lỗi', t:'Nhận lỗi, không viện cớ', full:true, cond:true, combos:['C03','C13','C21','C25'],
+ {id:'xinloi', poem:['Sai thì nhận ngay','Bỏ câu “tại vì”','Nói rõ sửa gì','Niềm tin quay về'], who:['người dám nhận trách nhiệm', 'người được tin lại'], g:1, s:'Nhận lỗi', t:'Nhận lỗi, không viện cớ', full:true, cond:true, mk:'Tối nay nhìn lại một việc hôm nay mình có thể làm tốt hơn. Nếu có, nói với người liên quan một câu ngắn.', combos:['C03','C13','C21','C25'],
   tiers:['Khi sai, nói “Em xin lỗi” trước, không mở đầu bằng “tại vì”.','Xin lỗi xong nói luôn một việc mình sẽ làm để sửa.','Ghi lỗi vào memo và không để lặp lại lần thứ hai.'],
   act:'xin lỗi trước, rồi nói cách sửa', anchors:['mình làm sai hoặc đến trễ','được nhắc là quên việc','làm phiền người khác'],
   ev:{q:'Bạn nhận lỗi về việc gì?', o:['Đến trễ','Quên việc','Làm sai','Làm phiền người khác']},
@@ -1394,11 +1473,11 @@ var HABITS = [
   tiers:['Khi phải chờ, ôn 5 từ vựng.','Ba lần “5 phút học” mỗi ngày.','Luôn có sẵn một việc học nhỏ trong túi.'],
   act:'mở 5 từ vựng ra ôn', anchors:['đứng chờ xe','xếp hàng lấy cơm','đến lớp sớm, chờ vào học'],
   jp:{j:'塵も積もれば山となる', r:'Chiri mo tsumoreba yama to naru', v:'Bụi gom lại cũng thành núi'}},
- {id:'gopy', who:['người tiến bộ nhanh', 'người biết lắng nghe'], g:2, s:'Nghe góp ý', t:'Nhận góp ý không nóng', cond:true, combos:['C05','C04','C21'],
+ {id:'gopy', who:['người tiến bộ nhanh', 'người biết lắng nghe'], g:2, s:'Nghe góp ý', t:'Nhận góp ý không nóng', cond:true, mk:'Chủ động xin một góp ý: “Hôm nay em làm gì chưa tốt ạ?”', combos:['C05','C04','C21'],
   tiers:['Khi được góp ý, nói “Dạ, em hiểu rồi” trước tiên.','Ghi 1 ý cần sửa vào memo trước khi giải thích.','Hôm sau báo lại với người góp ý: mình đã sửa thế nào.'],
   act:'nói “Dạ, em hiểu rồi”, ghi 1 ý cần sửa', anchors:['thầy cô hoặc bạn góp ý cho mình','thấy mặt mình nóng lên'],
   jp:{j:'はい、わかりました。気をつけます', r:'Hai, wakarimashita. Ki o tsukemasu', v:'Dạ, em hiểu rồi. Em sẽ chú ý.'}},
- {id:'camxuc', who:['người bình tĩnh', 'người làm chủ cảm xúc'], g:2, s:'Cảm xúc', t:'Gọi tên cảm xúc', cond:true, combos:['C05','C19','C21'],
+ {id:'camxuc', who:['người bình tĩnh', 'người làm chủ cảm xúc'], g:2, s:'Cảm xúc', t:'Gọi tên cảm xúc', combos:['C05','C19','C21'],
   tiers:['Khi thấy bực hay buồn, hít 3 hơi, nói thầm “Mình đang thấy…”.','Ghi 1 dòng: cảm xúc gì, vì sao, mình chọn làm gì.','Chọn cách phản ứng bình tĩnh ngay tại chỗ.'],
   act:'hít 3 hơi và gọi tên cảm xúc của mình', anchors:['thấy mình bắt đầu bực','nhận tin không vui','sắp trả lời tin nhắn lúc đang giận'],
   jp:{j:'落ち着いて', r:'Ochitsuite', v:'Bình tĩnh nào'}},
@@ -1433,18 +1512,18 @@ var HABITS = [
   tiers:['Ghi 1 điều mình để ý thấy hôm nay.','Hỏi thêm 1 câu “tại sao” về điều đó.','Kiểm chứng một tin trước khi tin hoặc chia sẻ.'],
   act:'ghi 1 điều mình để ý thấy', anchors:['đi từ lớp về ký túc xá','đọc một tin trên mạng','check-in tối'],
   jp:{j:'質問してもよろしいですか', r:'Shitsumon shitemo yoroshii desu ka', v:'Em hỏi một câu được không ạ?'}},
- {id:'viecko', who:['người không ngại khó'], g:3, s:'Việc khó', t:'Xung phong việc khó', combos:['C07','C17','C08'],
+ {id:'viecko', wk:1, cond:true, mk:'Chọn một việc mình hơi ngại và nói: “Em xin làm việc này ạ.”', who:['người không ngại khó'], g:3, s:'Việc khó', t:'Xung phong việc khó', combos:['C07','C17','C08'],
   tiers:['Mỗi tuần nhận 1 việc mình hơi ngại.','Làm việc đó tới cùng, không bỏ dở.','Đề xuất 1 cải tiến nhỏ cho lớp hoặc phòng.'],
   act:'giơ tay nhận 1 việc mình hơi ngại', anchors:['thầy cô hỏi “ai làm?”','lớp phân công trực nhật'],
   jp:{j:'やってみます', r:'Yatte mimasu', v:'Em sẽ thử làm'},
   quote:{q:'Thử thách chính là người thầy vĩ đại của cuộc đời mỗi người.', by:'Thầy Lê Long Sơn'}},
 
  /* ===== Nhóm 4 · Làm việc cùng người khác (bản nháp) ===== */
- {id:'horenso', who:['người làm việc chuyên nghiệp'], g:4, s:'Hō-Ren-Sō', t:'Hō-Ren-Sō: báo, liên, bàn', combos:['C11','C23','C13'],
+ {id:'horenso', cond:true, mk:'Báo một việc nhỏ cho thầy cô hoặc tổ trưởng: “Em xin báo, việc … đã xong ạ.”', who:['người làm việc chuyên nghiệp'], g:4, s:'Hō-Ren-Sō', t:'Hō-Ren-Sō: báo, liên, bàn', combos:['C11','C23','C13'],
   tiers:['Xong việc được giao, báo lại 1 câu.','Có thay đổi thì liên lạc ngay; chưa chắc thì hỏi.','Báo cáo kết luận trước, lý do sau.'],
   act:'báo lại 1 câu với người giao việc', anchors:['làm xong việc được giao','thấy kế hoạch bị thay đổi','chưa chắc mình hiểu đúng'],
   jp:{j:'報告します', r:'Hōkoku shimasu', v:'Em xin báo cáo'}},
- {id:'giup', who:['người đồng đội tốt'], g:4, s:'Giúp 1 việc', t:'Xong việc mình, giúp 1 việc', combos:['C18','C12','C23','C21'],
+ {id:'giup', wk:2, cond:true, mk:'Hỏi một câu: “Bạn cần mình giúp gì không?”', who:['người đồng đội tốt'], g:4, s:'Giúp 1 việc', t:'Xong việc mình, giúp 1 việc', combos:['C18','C12','C23','C21'],
   tiers:['Làm xong phần mình rồi hỏi “Có cần mình giúp không?”.','Để ý ai đang cần giúp trước khi họ nhờ.','Làm phần việc chung không cần ai nhắc.'],
   act:'hỏi “Có cần mình giúp không?”', anchors:['làm xong phần việc của mình','thấy bạn đang bưng vác','trực nhật xong'],
   jp:{j:'何か手伝いましょうか', r:'Nanika tetsudaimashō ka', v:'Mình giúp gì được không?'}}
@@ -1612,7 +1691,7 @@ var N2 = {
   dlg:[['shin','worry','Thầy hỏi “ai làm?” mà em sợ làm không tốt, nên em ngồi im…'],
        ['s','smile','Hồi trước chị cũng vậy. Rồi có lần thầy hỏi ai làm trưởng nhóm thuyết trình, chị run nhưng vẫn giơ tay.'],
        ['shin','think','Rồi chị có làm tốt không?'],
-       ['s','hi','Chưa hoàn hảo, nhưng chị học được rất nhiều. Sang Nhật, chị hay nói やってみます. Nhờ vậy chị được giao máy mới, việc mới, tay nghề lên nhanh.']],
+       ['s','hi','Chưa hoàn hảo, nhưng chị học được rất nhiều. Sang Nhật, chị hay nói やってみます. Nhờ vậy chị được giao việc mới, vị trí mới, tay nghề lên nhanh.']],
   steps:[['Nhận ra việc mình hơi ngại','Không cần việc quá sức, chỉ hơi ngại thôi.'],['Giơ tay trước khi kịp ngại','Nói “Em xin thử ạ”.'],['Làm tới cùng, vướng thì hỏi','Xong thì báo lại kết quả.']],
   dos:[['Nhận việc hơi khó, vừa sức','Ôm việc quá sức rồi bỏ dở'],['Vướng là hỏi ngay','Im lặng làm sai rồi giấu']],
   oops:['Nhận việc rồi để sát hạn mới làm.','Sợ sai nên không dám hỏi.'],
@@ -1626,7 +1705,7 @@ var N2 = {
   dlg:[['shin','think','Làm xong việc rồi, cần gì phải báo nữa chị?'],
        ['s','smile','Người giao việc đâu biết mình xong chưa. Không báo thì họ phải đi hỏi, hoặc lo là mình chưa làm.'],
        ['shin','worry','Còn nếu em làm sai hay bị trễ, báo ra ngại lắm…'],
-       ['s','hi','Càng phải báo sớm. Có hôm máy chạy chậm, chị định tự xử lý rồi mới nói. Chị tổ trưởng dặn: có thay đổi là báo ngay, dù chưa biết cách sửa. Báo sớm thì cả tổ cùng tìm cách.']],
+       ['s','hi','Càng phải báo sớm. Có hôm khách đông hơn dự kiến, chị định tự xoay xở rồi mới nói. Chị quản lý dặn: có thay đổi là báo ngay, dù chưa biết cách xử lý. Báo sớm thì cả ca cùng tìm cách.']],
   steps:[['Xong việc: báo một câu','“Em đã làm xong … rồi ạ.”'],['Có thay đổi: liên lạc ngay','Trễ, nghỉ, máy hỏng: báo trước, sửa sau.'],['Chưa chắc: hỏi, bàn','Nhắc lại để xác nhận rồi mới làm.']],
   dos:[['Nói kết luận trước, lý do sau','Kể dài rồi mới nói kết quả'],['Báo sớm khi có vấn đề','Giấu lỗi, đợi tự sửa xong']],
   oops:['Nhắn báo nghỉ khi giờ học đã bắt đầu.','Gật đầu “Dạ hiểu” dù chưa chắc hiểu đúng.'],
@@ -1849,6 +1928,33 @@ function shin(mood){
     eyes='<path d="M42 58q6 5 12 0M66 58q6 5 12 0" stroke="'+K+'" stroke-width="3" fill="none" stroke-linecap="round"/>';
     mouth='<path d="M56 71q4 2 8 0" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
     extra='<text x="88" y="34" style="'+FONT_SVG+';font-weight:800" font-size="15" fill="'+S+'">z</text><text x="98" y="24" style="'+FONT_SVG+';font-weight:800" font-size="11" fill="'+S+'">z</text>';
+  } else if(mood==='moved'){
+    eyes='<g class="blink"><ellipse cx="48" cy="58" rx="6" ry="6.6" fill="'+K+'"/><ellipse cx="72" cy="58" rx="6" ry="6.6" fill="'+K+'"/><circle cx="50.4" cy="55.6" r="2.4" fill="#fff"/><circle cx="74.4" cy="55.6" r="2.4" fill="#fff"/><circle cx="46" cy="60.6" r="1.2" fill="#fff"/><circle cx="70" cy="60.6" r="1.2" fill="#fff"/></g><path d="M43 66q-2 3.4 0 5.4q2-2 0-5.4z" fill="#8FD0E8"/>';
+    mouth='<path d="M54 70q6 6 12 0" stroke="'+K+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    armL='<ellipse cx="50" cy="97" rx="8" ry="6" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    armR='<ellipse cx="70" cy="97" rx="8" ry="6" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    extra='<path d="M100 40l-7-7c-4-5 3-10 7-4 4-6 11-1 7 4z" fill="#E0567F"/>';
+  } else if(mood==='comfort'){
+    eyes='<g class="blink"><circle cx="48" cy="58" r="4.4" fill="'+K+'"/><circle cx="72" cy="58" r="4.4" fill="'+K+'"/><circle cx="49.6" cy="56.4" r="1.5" fill="#fff"/><circle cx="73.6" cy="56.4" r="1.5" fill="#fff"/></g><path d="M41 52l12-4M79 52l-12-4" stroke="'+K+'" stroke-width="2.4" stroke-linecap="round"/>';
+    mouth='<path d="M55 71q5 3 10 0" stroke="'+K+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    armR='<ellipse cx="90" cy="86" rx="8" ry="6.4" fill="'+W+'" stroke="'+K+'" stroke-width="2.4" transform="rotate(-20 90 86)"/>';
+    extra='<path d="M100 78l-6-6c-3-4 2-8 6-3 4-5 9-1 6 3z" fill="#F29A9A" stroke="#D96C6C" stroke-width="1"/>';
+  } else if(mood==='proud'){
+    eyes='<g class="blink"><circle cx="48" cy="57" r="5" fill="'+K+'"/><circle cx="72" cy="57" r="5" fill="'+K+'"/><path d="M50 53.6l.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3z" fill="#fff"/><path d="M74 53.6l.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3z" fill="#fff"/></g><path d="M42 49q6-4 12-1M66 48q6-3 12 1" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+    mouth='<path d="M52 69q9 8 17-2" stroke="'+K+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    armL='<ellipse cx="34" cy="98" rx="8" ry="6" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    armR='<ellipse cx="86" cy="98" rx="8" ry="6" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    extra='<path d="M54 92l6 8 6-8" stroke="#C8372D" stroke-width="3" fill="none"/><circle cx="60" cy="105" r="5.2" fill="#F4B63B" stroke="'+K+'" stroke-width="1.8"/><g fill="#F4B63B"><path d="M18 40l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M101 36l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>';
+  } else if(mood==='yawn'){
+    eyes='<path d="M42 55l10 4-10 4M78 55l-10 4 10 4" stroke="'+K+'" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+    mouth='<ellipse cx="60" cy="73" rx="6.5" ry="8.4" fill="#E86A5C" stroke="'+K+'" stroke-width="2.4"/>';
+    armR='<ellipse cx="80" cy="78" rx="7.5" ry="6.6" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    extra='<path d="M40 66q-2 3.4 0 5.4q2-2 0-5.4z" fill="#8FD0E8"/><text x="92" y="34" style="'+FONT_SVG+';font-weight:800" font-size="16" fill="'+S+'">z</text>';
+  } else if(mood==='curious'){
+    eyes='<g class="blink"><circle cx="48" cy="57" r="5.6" fill="'+K+'"/><circle cx="72" cy="57" r="5.6" fill="'+K+'"/><circle cx="50.4" cy="54.8" r="1.9" fill="#fff"/><circle cx="74.4" cy="54.8" r="1.9" fill="#fff"/></g><path d="M41 47q6-5 12-1M66 50h12" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+    mouth='<path d="M57 71q3-3.4 6 0q-3 3.4-6 0z" fill="#E86A5C" stroke="'+K+'" stroke-width="1.6" stroke-linejoin="round"/>';
+    armR='<ellipse cx="86" cy="84" rx="7.5" ry="6.4" fill="'+W+'" stroke="'+K+'" stroke-width="2.4"/>';
+    extra='<circle cx="101" cy="70" r="9" fill="#DDF1FA" fill-opacity=".75" stroke="#5A4A3A" stroke-width="3"/><path d="M94.4 77l-8 8.4" stroke="#5A4A3A" stroke-width="4" stroke-linecap="round"/>';
   } else {
     eyes='<g class="blink"><circle cx="48" cy="58" r="5" fill="'+K+'"/><circle cx="72" cy="58" r="5" fill="'+K+'"/><circle cx="49.8" cy="56" r="1.7" fill="#fff"/><circle cx="73.8" cy="56" r="1.7" fill="#fff"/></g>';
     if(mood!=='still') armR='<g class="wave"><ellipse cx="92" cy="66" rx="7.5" ry="9" fill="'+W+'" stroke="'+K+'" stroke-width="2.4" transform="rotate(20 92 66)"/><path d="M89 61v6M93 60v6" stroke="'+K+'" stroke-width="1.4" stroke-linecap="round"/></g>';
@@ -1871,32 +1977,75 @@ function shin(mood){
     armL+armR+extra+'</g></svg>';
 }
 
-/* ---- Senpai Minh: anh khóa trước đang làm ở Nhật (hư cấu) · hi · smile ---- */
-/* ---- Senpai: 5 gương mặt anh chị khóa trước (hư cấu) · v0 Minh · v1 Hạnh · v2 Vy · v3 Tuấn · v4 Linh ---- */
+/* ---- Senpai: 6 anh chị khóa trước (hư cấu), mỗi người một ngành · 0 Minh nhà máy · 1 Hạnh chế biến thực phẩm · 2 Vy điều dưỡng · 3 Tuấn xây dựng · 4 Linh nhà hàng khách sạn · 5 Phong gara ô tô ---- */
 function senpai(mood,v){
-  v=v||0;
-  var K='#2B2420', SK=['#F3CDA8','#F6D3B5','#EFC39E','#E9BC94','#F5CFAE'][v], H=['#2A2321','#3B2A22','#1F1A18','#2A2321','#4A3428'][v], U=['#2F4A6B','#2F6B5E','#6B3F5E','#3E4A6B','#7A4E2F'][v];
-  var arm = mood==='hi' ?
-    '<g class="wave"><path d="M86 92q12-16 12-34" stroke="'+U+'" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="98" cy="54" r="7" fill="'+SK+'" stroke="'+K+'" stroke-width="2"/></g>' :
-    '<path d="M86 96q8 8 6 22" stroke="'+U+'" stroke-width="11" stroke-linecap="round" fill="none"/>';
-  var back='', hair='', extra='';
-  if(v===1){ back='<path d="M34 52q-4 36 4 54h44q8-18 4-54z" fill="'+H+'"/>'; hair='<path d="M35 54q-3-30 25-30t25 30q-10-14-25-16q-12 2-25 16z" fill="'+H+'"/>'; }
-  else if(v===2){ back='<path d="M34 50q-2 22 4 32h44q6-10 4-32z" fill="'+H+'"/>'; hair='<path d="M35 54q-2-30 25-30t25 30v-4q-4 2-8-1-4 3-8 0-4 3-9 0-4 3-8 0-4 3-8 0-4 3-7 1z" fill="'+H+'"/>'; }
-  else if(v===3){ hair='<path d="M35 50q-2-24 25-24t25 24q-8-8-25-8t-25 8z" fill="'+H+'"/><path d="M33 44q27-22 54 0l6 4H27z" fill="#F2B21B" stroke="'+K+'" stroke-width="2"/>';
-    extra='<g fill="none" stroke="'+K+'" stroke-width="2"><circle cx="51" cy="58" r="6.5"/><circle cx="69" cy="58" r="6.5"/><path d="M57.5 58h5"/></g>'; }
-  else if(v===4){ back='<path d="M80 40q22 6 16 40-8-14-14-20z" fill="'+H+'"/>'; hair='<path d="M35 54q-3-30 25-30t25 30q-8-14-25-15q-14 1-25 15z" fill="'+H+'"/><circle cx="82" cy="40" r="4.5" fill="#E0567F"/>'; }
-  else { hair='<path d="M35 52q-2-26 25-26t25 24q-6-10-18-12q-2 6-14 8q-8 0-18 6z" fill="'+H+'"/>'; }
+  v=(+v||0)%6; mood=mood||'smile';
+  var K='#2B2420', SK=['#F3CDA8','#F6D3B5','#EFC39E','#E9BC94','#F5CFAE','#E3B08A'][v], H=['#2A2321','#3B2A22','#1F1A18','#2A2321','#4A3428','#1F1A18'][v];
+  var back='', hair='', top='', torso='', arms='', neck='<rect x="52" y="76" width="16" height="14" fill="'+SK+'"/>';
+  var base='<path d="M34 96q-8 8-6 22M86 96q8 8 6 22" stroke="@U@" stroke-width="11" stroke-linecap="round" fill="none"/>';
+  var U;
+  if(v===0){ /* nhà máy: áo khoác xanh, mũ lưỡi trai */
+    U='#3566A8';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M50 90l10 10 10-10" fill="#2A5088" stroke="'+K+'" stroke-width="1.8"/><path d="M60 100v24" stroke="#CFE0F8" stroke-width="2"/><rect x="70" y="104" width="13" height="9" rx="2" fill="#fff" stroke="'+K+'" stroke-width="1.5"/><path d="M73 108h7" stroke="#2A74DB" stroke-width="2"/>';
+    hair='<path d="M36 50q-1-8 3-12l4 12zM84 50q1-8-3-12l-4 12z" fill="'+H+'"/>';
+    top='<path d="M36 42q-1-22 24-22t24 22z" fill="#2B3A55" stroke="'+K+'" stroke-width="2"/><path d="M31 42h58q-4 6-29 6t-29-6z" fill="#1F2A40" stroke="'+K+'" stroke-width="2"/><rect x="54" y="28" width="12" height="7" rx="2" fill="#F4F4F0"/>';
+  } else if(v===1){ /* chế biến thực phẩm: áo blouse trắng, mũ lưới, khẩu trang kéo xuống cổ */
+    U='#F2F5F8';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M48 90l12 14 12-14" fill="#CFE0F2" stroke="'+K+'" stroke-width="1.8"/><circle cx="60" cy="110" r="1.8" fill="#8FB4D0"/><circle cx="60" cy="118" r="1.8" fill="#8FB4D0"/>';
+    neck+='<path d="M48 80h24l-2 9q-10 4-20 0z" fill="#CFE6F5" stroke="#8FB4D0" stroke-width="1.4"/>';
+    hair='<path d="M36 52q-1-6 2-10l4 10z" fill="'+H+'"/><path d="M84 52q1-6-2-10l-4 10z" fill="'+H+'"/>';
+    top='<path d="M34 47q-2-27 26-27t26 27q-12-9-26-9t-26 9z" fill="#EAF1F8" stroke="#9FB6CC" stroke-width="1.8"/><g fill="#B9CBDD"><circle cx="46" cy="32" r="1.4"/><circle cx="56" cy="27" r="1.4"/><circle cx="66" cy="27" r="1.4"/><circle cx="75" cy="32" r="1.4"/><circle cx="60" cy="34" r="1.4"/></g>';
+  } else if(v===2){ /* điều dưỡng: áo scrubs xanh ngọc, thẻ tên, tóc buộc đuôi */
+    U='#3FA79E';
+    back='<path d="M82 40q22 8 14 42-7-12-14-22z" fill="'+H+'"/>';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M48 90l12 18 12-18" fill="#F3FBF9" stroke="'+K+'" stroke-width="1.8"/><path d="M52 92l5 22M68 92l-5 22" stroke="#2A74DB" stroke-width="2.2"/><rect x="53" y="112" width="14" height="10" rx="2" fill="#fff" stroke="'+K+'" stroke-width="1.5"/><path d="M56 117h8" stroke="#7A8697" stroke-width="1.6"/>';
+    hair='<path d="M35 54q-2-30 25-30t25 30q-8-14-25-16q-14 2-25 16z" fill="'+H+'"/><circle cx="85" cy="42" r="4.5" fill="#F29A9A"/>';
+  } else if(v===3){ /* xây dựng: mũ bảo hộ vàng, áo phản quang */
+    U='#8A93A0';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M50 90l10 12 10-12" fill="#fff" stroke="'+K+'" stroke-width="1.8"/><path d="M26 124q0-26 22-34l6 4-4 30zM94 124q0-26-22-34l-6 4 4 30z" fill="#F0731E" stroke="'+K+'" stroke-width="2"/><path d="M31 112h20M69 112h20" stroke="#FFE9A8" stroke-width="3.6"/>';
+    hair='<path d="M36 52q-1-6 2-10l4 10zM84 52q1-6-2-10l-4 10z" fill="'+H+'"/>';
+    top='<path d="M34 44q0-26 26-26t26 26z" fill="#F2B21B" stroke="'+K+'" stroke-width="2"/><path d="M56 19v24M64 19v24" stroke="#D99A0B" stroke-width="2"/><rect x="28" y="42" width="64" height="7" rx="3.5" fill="#E5A511" stroke="'+K+'" stroke-width="2"/>';
+  } else if(v===4){ /* nhà hàng, khách sạn: sơ mi trắng, gile đen, nơ đỏ, tóc búi */
+    U='#F7F7F4';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M26 124q0-26 22-34l8 8-6 26zM94 124q0-26-22-34l-8 8 6 26z" fill="#2E2E38" stroke="'+K+'" stroke-width="2"/><path d="M52 93l8 5-8 5zM68 93l-8 5 8 5z" fill="#C8372D" stroke="'+K+'" stroke-width="1.4"/><circle cx="60" cy="98" r="2.6" fill="#C8372D"/><rect x="72" y="108" width="11" height="6" rx="1.5" fill="#F4B63B" stroke="'+K+'" stroke-width="1.2"/>';
+    hair='<path d="M35 54q-3-30 25-30t25 30q-8-14-25-15q-14 1-25 15z" fill="'+H+'"/><circle cx="60" cy="21" r="8.5" fill="'+H+'"/>';
+  } else { /* gara ô tô: áo liền quần xám xanh, khăn bandana đỏ, vệt dầu */
+    U='#46607E';
+    torso='<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/><path d="M50 90l10 12 10-12" fill="#35495F" stroke="'+K+'" stroke-width="1.8"/><path d="M60 102v22" stroke="#F0731E" stroke-width="3"/><rect x="30" y="106" width="15" height="11" rx="2" fill="#3B536F" stroke="'+K+'" stroke-width="1.5"/><path d="M36 106q1-6 5-4" stroke="#E8E2D6" stroke-width="3" stroke-linecap="round" fill="none"/>';
+    hair='<path d="M36 52q-1-6 2-10l4 10zM84 52q1-6-2-10l-4 10z" fill="'+H+'"/>';
+    top='<path d="M35 42q25-14 50 0v7q-25-9-50 0z" fill="#C8372D" stroke="'+K+'" stroke-width="1.6"/><path d="M84 42l10-5-2 11z" fill="#C8372D" stroke="'+K+'" stroke-width="1.4"/>';
+  }
+  /* nét mặt: chỉ đổi biểu cảm, hai tay luôn buông */
+  var eyes, brows, mouth, extra='';
+  var dots='<g class="blink"><circle cx="51" cy="58" r="3.2" fill="'+K+'"/><circle cx="69" cy="58" r="3.2" fill="'+K+'"/></g>';
+  brows='<path d="M46 50q5-3 10 0M64 50q5-3 10 0" stroke="'+K+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>';
+  eyes=dots; mouth='<path d="M52 68q8 7 16 0" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+  if(mood==='hi'){
+    eyes='<path d="M46 59q5-6 10 0M64 59q5-6 10 0" stroke="'+K+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    brows='<path d="M46 49q5-4 10 0M64 49q5-4 10 0" stroke="'+K+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>';
+    mouth='<path d="M50 66q10 14 20 0z" fill="#B8453A" stroke="'+K+'" stroke-width="2" stroke-linejoin="round"/>';
+  } else if(mood==='think'){
+    eyes='<g class="blink"><circle cx="53" cy="57" r="3.2" fill="'+K+'"/><circle cx="71" cy="57" r="3.2" fill="'+K+'"/></g>';
+    brows='<path d="M46 47q5-5 10-1M64 51h10" stroke="'+K+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>';
+    mouth='<path d="M55 70q5-2 10 1" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+  } else if(mood==='wow'){
+    eyes='<g class="blink"><circle cx="51" cy="58" r="4.4" fill="'+K+'"/><circle cx="69" cy="58" r="4.4" fill="'+K+'"/><circle cx="52.4" cy="56.4" r="1.4" fill="#fff"/><circle cx="70.4" cy="56.4" r="1.4" fill="#fff"/></g>';
+    brows='<path d="M45 47q6-5 12 0M63 47q6-5 12 0" stroke="'+K+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>';
+    mouth='<ellipse cx="60" cy="71" rx="4" ry="5" fill="#8A3A30" stroke="'+K+'" stroke-width="1.8"/>';
+  } else if(mood==='worry'){
+    brows='<path d="M45 52l10-3M75 52l-10-3" stroke="'+K+'" stroke-width="2.2" stroke-linecap="round"/>';
+    mouth='<path d="M52 72q8-6 16 0" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+    extra='<path d="M84 44q3 5 0 8q-3-3 0-8z" fill="#8FD0E8" stroke="#4A9BBE" stroke-width="1.2"/>';
+  } else if(mood==='laugh'){
+    eyes='<path d="M46 60q5-7 10 0M64 60q5-7 10 0" stroke="'+K+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    mouth='<path d="M48 65h24q-2 13-12 13t-12-13z" fill="#B8453A" stroke="'+K+'" stroke-width="2" stroke-linejoin="round"/>';
+  }
   return '<svg viewBox="0 0 120 124" aria-hidden="true"><g class="bob">'+back+
-    '<path d="M24 124q0-36 36-36t36 36z" fill="'+U+'" stroke="'+K+'" stroke-width="2.4"/>'+
-    '<path d="M50 90l10 14 10-14" fill="#fff" stroke="'+K+'" stroke-width="2"/>'+
-    '<rect x="70" y="104" width="14" height="9" rx="2" fill="#fff" stroke="'+K+'" stroke-width="1.6"/><path d="M73 108h8" stroke="#2A74DB" stroke-width="2"/>'+
-    '<path d="M34 96q-8 8-6 22" stroke="'+U+'" stroke-width="11" stroke-linecap="round" fill="none"/>'+arm+
-    '<rect x="52" y="76" width="16" height="14" fill="'+SK+'"/>'+
-    '<ellipse cx="60" cy="56" rx="24" ry="27" fill="'+SK+'" stroke="'+K+'" stroke-width="2.4"/>'+hair+
-    '<g class="blink"><circle cx="51" cy="58" r="3.2" fill="'+K+'"/><circle cx="69" cy="58" r="3.2" fill="'+K+'"/></g>'+
-    '<path d="M46 50q5-3 10 0M64 50q5-3 10 0" stroke="'+K+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>'+
-    '<path d="M52 68q8 7 16 0" stroke="'+K+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
-    '<ellipse cx="44" cy="64" rx="4" ry="2.4" fill="#F0A493" opacity=".6"/><ellipse cx="76" cy="64" rx="4" ry="2.4" fill="#F0A493" opacity=".6"/>'+extra+
+    torso+base.replace('@U@',U)+neck+
+    '<ellipse cx="60" cy="56" rx="24" ry="27" fill="'+SK+'" stroke="'+K+'" stroke-width="2.4"/>'+hair+top+
+    eyes+brows+mouth+
+    '<ellipse cx="44" cy="64" rx="4" ry="2.4" fill="#F0A493" opacity=".6"/><ellipse cx="76" cy="64" rx="4" ry="2.4" fill="#F0A493" opacity=".6"/>'+
+    (v===5?'<path d="M72 63q3-2 6 0" stroke="#5A4636" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>':'')+extra+
     '</g></svg>';
 }
 
@@ -2057,6 +2206,7 @@ function stars(lv,sz,light){ var h='', col=['#C9C1AF','#C98B5B','#9DA9BC','#E3A9
 /* ---- Hình ẩn dụ mặt sau thẻ (vẽ gốc, nét trắng–vàng trên nền xanh) ---- */
 function metaSVG(id){
   var W='#fff', G='#FFD772', L='#9EC2FF', T='rgba(255,255,255,.35)', s='';
+  var A=L, DK='#1D4FB8';
   if(id==='chao'){
     s='<path d="M20 150h200" stroke="'+T+'" stroke-width="2" stroke-linecap="round"/>'+
       '<path d="M86 150C86 108 96 76 122 58" stroke="'+L+'" stroke-width="3" fill="none" stroke-linecap="round"/>'+
@@ -2098,6 +2248,103 @@ function metaSVG(id){
       '<path d="M176 16V2" stroke="'+W+'" stroke-width="2"/><path d="M176 2h16l-4 4 4 4h-16z" fill="'+G+'"/>'+
       '<path d="M46 150c40-6 20-30 60-36s20-30 52-38 22-20 18-30" stroke="'+W+'" stroke-width="3" fill="none" stroke-dasharray="7 7" stroke-linecap="round"/>'+
       '<g fill="'+G+'"><ellipse cx="40" cy="152" rx="5" ry="8" transform="rotate(-20 40 152)"/><ellipse cx="54" cy="140" rx="5" ry="8" transform="rotate(-20 54 140)"/></g>';
+  } else if(id==='5phut'){ /* 塵も積もれば山となる: hạt bụi nhỏ gom lại thành núi */
+    s='<path d="M20 140h200" stroke="'+T+'" stroke-width="2" stroke-linecap="round"/>'+
+      '<path d="M52 140L120 54l68 86z" fill="'+W+'" opacity=".92"/>'+
+      '<path d="M84 104h72M72 120h96" stroke="'+A+'" stroke-width="2.6" stroke-linecap="round"/>'+
+      '<path d="M104 78q16 8 32 0" stroke="'+A+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
+      '<g fill="'+G+'"><circle cx="120" cy="30" r="3.4"/><circle cx="108" cy="40" r="2.6"/><circle cx="133" cy="42" r="2.6"/><circle cx="120" cy="46" r="2.2"/></g>'+
+      '<g fill="'+T+'"><circle cx="92" cy="30" r="2.4"/><circle cx="150" cy="34" r="2.4"/><circle cx="170" cy="56" r="2"/><circle cx="72" cy="52" r="2"/></g>'+
+      '<circle cx="196" cy="34" r="12" fill="'+G+'" opacity=".9"/>';
+  } else if(id==='gopy'){ /* 良薬は口に苦し: bát thuốc đắng, mầm khỏe lên */
+    s='<path d="M100 82q-9-12 0-22t0-20M120 78q-9-12 0-22t0-20M140 82q-9-12 0-22t0-20" stroke="rgba(255,255,255,.6)" stroke-width="3.4" fill="none" stroke-linecap="round"/>'+
+      '<path d="M58 94h124q-4 36-62 36t-62-36z" fill="'+W+'"/><ellipse cx="120" cy="94" rx="62" ry="9" fill="#2E8B57"/><ellipse cx="120" cy="94" rx="62" ry="9" fill="none" stroke="'+W+'" stroke-width="2.6"/>'+
+      '<path d="M94 132h52" stroke="'+W+'" stroke-width="4" stroke-linecap="round"/>'+
+      '<path d="M190 112V84" stroke="'+A+'" stroke-width="3.6" stroke-linecap="round"/><path d="M190 96c-16-2-24-12-24-24 14 0 24 10 24 24z" fill="'+G+'"/><path d="M190 88c12-2 20-10 20-22-12 0-20 8-20 22z" fill="'+W+'"/>'+
+      '<path d="M40 52l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="'+G+'"/>';
+  } else if(id==='camxuc'){ /* 短気は損気: nồi sôi trào, hạ lửa cho dịu */
+    s='<path d="M72 74h96v48q0 10-10 10H82q-10 0-10-10z" fill="'+W+'"/>'+
+      '<g transform="rotate(-9 120 68)"><path d="M76 68q44-34 88 0z" fill="'+W+'" opacity=".92"/><circle cx="120" cy="40" r="5.5" fill="'+G+'"/></g>'+
+      '<path d="M72 92h-22M168 92h22" stroke="'+W+'" stroke-width="5" stroke-linecap="round"/>'+
+      '<g fill="'+A+'"><circle cx="96" cy="72" r="7"/><circle cx="116" cy="68" r="6"/><circle cx="138" cy="70" r="7"/><circle cx="156" cy="74" r="5"/></g>'+
+      '<path d="M72 80q-7 14 0 30" stroke="'+A+'" stroke-width="5" fill="none" stroke-linecap="round"/>'+
+      '<path d="M120 152q-9-7 0-18q9 11 0 18zM100 152q-6-5 0-12q6 7 0 12zM140 152q-6-5 0-12q6 7 0 12z" fill="'+G+'"/>'+
+      '<path d="M196 28q8 12 0 20q-8-8 0-20z" fill="'+A+'"/><path d="M214 56q6 9 0 15q-6-6 0-15z" fill="'+A+'" opacity=".7"/>';
+  } else if(id==='vandong'){ /* 継続は力なり: từng bậc, đều chân sẽ lên cao */
+    s='<circle cx="40" cy="38" r="13" fill="'+G+'" opacity=".9"/>'+
+      '<path d="M40 142v-14h36v14zM76 142v-30h36v30zM112 142v-46h36v46zM148 142v-62h36v62z" fill="'+W+'" opacity=".92"/>'+
+      '<path d="M40 128h36M76 112h36M112 96h36M148 80h36" stroke="'+A+'" stroke-width="3" stroke-linecap="round"/>'+
+      '<g fill="'+G+'"><ellipse cx="54" cy="122" rx="3.4" ry="5.4" transform="rotate(10 54 122)"/><ellipse cx="64" cy="120" rx="3.4" ry="5.4" transform="rotate(10 64 120)"/><ellipse cx="90" cy="106" rx="3.4" ry="5.4" transform="rotate(10 90 106)"/><ellipse cx="100" cy="104" rx="3.4" ry="5.4" transform="rotate(10 100 104)"/><ellipse cx="126" cy="90" rx="3.4" ry="5.4" transform="rotate(10 126 90)"/><ellipse cx="136" cy="88" rx="3.4" ry="5.4" transform="rotate(10 136 88)"/></g>'+
+      '<path d="M176 80V40" stroke="'+W+'" stroke-width="2.6" stroke-linecap="round"/><path d="M176 40h22l-6 7 6 7h-22z" fill="'+G+'"/>';
+  } else if(id==='anuong'){ /* 腹八分目: bát cơm vừa tám phần */
+    for(var k=0;k<10;k++){ var an=-Math.PI/2+k*Math.PI*2/10, cx=120+Math.cos(an)*56, cy=82+Math.sin(an)*56; s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="5.2" fill="'+(k<8?G:T)+'"/>'; }
+    s+='<path d="M82 86h76q-2 30-38 30t-38-30z" fill="'+W+'"/><path d="M88 86q32-36 64 0z" fill="'+W+'" opacity=".95"/>'+
+      '<path d="M104 76q4-4 8 0M122 70q4-4 8 0M134 78q3-3 6 0" stroke="'+A+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>'+
+      '<path d="M146 66l38-24M154 74l38-24" stroke="'+G+'" stroke-width="3.6" stroke-linecap="round"/>'+
+      '<path d="M100 124h40" stroke="'+W+'" stroke-width="4" stroke-linecap="round"/>';
+  } else if(id==='ngu'){ /* 寝る子は育つ: đêm ngủ ngon, mầm lớn lên */
+    s='<path d="M178 22a26 26 0 1 0 24 40a22 22 0 0 1-24-40z" fill="'+G+'"/>'+
+      '<g fill="'+W+'"><path d="M58 32l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M96 20l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/><path d="M148 42l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>'+
+      '<path d="M96 150l6-30h36l6 30z" fill="'+W+'" opacity=".95"/><path d="M100 128h40" stroke="'+A+'" stroke-width="2.4" stroke-linecap="round"/>'+
+      '<path d="M120 120V82" stroke="'+A+'" stroke-width="4" stroke-linecap="round"/><path d="M120 96c-18-2-28-14-28-28 16 0 28 12 28 28z" fill="'+A+'"/><path d="M120 86c14-2 24-12 24-26-14 0-24 10-24 26z" fill="'+W+'"/>'+
+      '<path d="M56 78h13l-13 15h13M76 58h9l-9 11h9" stroke="'+W+'" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+  } else if(id==='bot'){ /* 急がば回れ: đường vòng mà chắc */
+    s='<ellipse cx="120" cy="92" rx="64" ry="32" fill="rgba(255,255,255,.24)"/>'+
+      '<path d="M50 92h140" stroke="'+T+'" stroke-width="3" stroke-dasharray="6 7" stroke-linecap="round"/>'+
+      '<path d="M114 85l12 14M126 85l-12 14" stroke="'+W+'" stroke-width="3.4" stroke-linecap="round"/>'+
+      '<path d="M50 92q18 46 70 46t70-46" stroke="'+W+'" stroke-width="4.4" fill="none" stroke-linecap="round"/>'+
+      '<circle cx="50" cy="92" r="6" fill="'+G+'"/><path d="M192 92V60" stroke="'+W+'" stroke-width="2.6" stroke-linecap="round"/><path d="M192 60h20l-6 7 6 7h-20z" fill="'+G+'"/>'+
+      '';
+  } else if(id==='chitieu'){ /* 安物買いの銭失い: mua rẻ rồi tiền cũng mất */
+    s='<rect x="64" y="46" width="112" height="56" rx="12" fill="'+W+'"/><circle cx="82" cy="74" r="6" fill="'+DK+'" opacity=".55"/>'+
+      '<path d="M106 62h44M106 78h30" stroke="'+A+'" stroke-width="3.4" stroke-linecap="round"/>'+
+      '<path d="M130 46l-8 14 11 11-11 12 8 19" stroke="'+DK+'" stroke-width="3.2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>'+
+      '<g fill="'+G+'"><circle cx="84" cy="128" r="11"/><circle cx="114" cy="138" r="11"/><circle cx="146" cy="130" r="11"/><circle cx="174" cy="140" r="9"/></g>'+
+      '<g stroke="'+DK+'" stroke-width="2.2" fill="none" opacity=".4"><circle cx="84" cy="128" r="6.5"/><circle cx="114" cy="138" r="6.5"/><circle cx="146" cy="130" r="6.5"/></g>'+
+      '<path d="M200 38l2.6 6 6 2.6-6 2.6-2.6 6-2.6-6-6-2.6 6-2.6z" fill="'+G+'"/>';
+  } else if(id==='tiengnhat'){ /* 習うより慣れよ: nói nhiều, quen dần */
+    s='<path d="M44 128h152" stroke="'+T+'" stroke-width="2" stroke-linecap="round"/>'+
+      '<path d="M54 108q6-8 14-4" stroke="'+T+'" stroke-width="2.4" fill="none" stroke-dasharray="4 5" stroke-linecap="round"/>'+
+      '<rect x="46" y="84" width="34" height="24" rx="12" fill="'+A+'" opacity=".85"/><path d="M58 108l-4 10 12-8z" fill="'+A+'" opacity=".85"/>'+
+      '<rect x="88" y="66" width="46" height="32" rx="16" fill="'+A+'"/><path d="M104 98l-5 12 15-9z" fill="'+A+'"/>'+
+      '<rect x="144" y="34" width="58" height="42" rx="21" fill="'+W+'"/><path d="M164 76l-6 14 18-11z" fill="'+W+'"/>'+
+      '<g fill="'+DK+'"><circle cx="160" cy="55" r="4"/><circle cx="173" cy="55" r="4"/><circle cx="186" cy="55" r="4"/></g>'+
+      '<path d="M56 96h14M100 82h22" stroke="'+W+'" stroke-width="2.6" stroke-linecap="round"/>'+
+      '<g fill="'+G+'"><path d="M206 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>'+
+      '<path d="M82 40q22-14 44-6" stroke="'+G+'" stroke-width="2.6" fill="none" stroke-dasharray="4 5" stroke-linecap="round"/>';
+  } else if(id==='quansat'){ /* 百聞は一見に如かず: thấy một lần hơn nghe trăm lần */
+    s='<g stroke="'+T+'" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M120 26v12M82 34l6 11M158 34l-6 11M52 52l9 8M188 52l-9 8"/></g>'+
+      '<path d="M44 86q76-70 152 0q-76 70-152 0z" fill="'+W+'"/>'+
+      '<circle cx="120" cy="86" r="26" fill="'+G+'"/><circle cx="120" cy="86" r="12" fill="'+DK+'"/><circle cx="127" cy="79" r="5" fill="'+W+'"/>'+
+      '<path d="M60 128q6 4 12 0M84 134q6 4 12 0M144 134q6 4 12 0M168 128q6 4 12 0" stroke="'+T+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
+      '<path d="M196 118l8 3 3 8-8-3z" fill="'+G+'" opacity=".0"/>';
+  } else if(id==='viecko'){ /* 案ずるより産むが易し: lo thì thấy to, bắt tay vào thì nhỏ */
+    s='<path d="M20 140h200" stroke="'+T+'" stroke-width="2" stroke-linecap="round"/>'+
+      '<path d="M58 140V44q0-8 8-8h50q8 0 8 8v96z" fill="'+T+'"/>'+
+      '<path d="M82 62q-14 0-14-12t14-12q4-10 18-6 12-6 20 4 14-2 16 12t-14 14z" fill="rgba(255,255,255,.28)"/>'+
+      '<path d="M100 56l6 10M114 52l-2 12" stroke="'+T+'" stroke-width="2.4" stroke-linecap="round"/>'+
+      '<path d="M130 140v-18q0-6 6-6h44q6 0 6 6v18z" fill="'+W+'"/>'+
+      '<path d="M138 116h40" stroke="'+A+'" stroke-width="3" stroke-linecap="round"/>'+
+      '<g fill="'+G+'"><ellipse cx="150" cy="106" rx="3.6" ry="6" transform="rotate(12 150 106)"/><ellipse cx="162" cy="102" rx="3.6" ry="6" transform="rotate(12 162 102)"/></g>'+
+      '<path d="M104 128q16-30 44-30" stroke="'+W+'" stroke-width="2.6" fill="none" stroke-dasharray="5 6" stroke-linecap="round"/>'+
+      '<circle cx="204" cy="36" r="12" fill="'+G+'" opacity=".9"/>';
+  } else if(id==='horenso'){ /* 石橋を叩いて渡る: gõ thử cầu đá rồi mới qua */
+    s='<path d="M20 150q22-8 44 0t44 0 44 0 44 0" stroke="'+A+'" stroke-width="3" fill="none" stroke-linecap="round"/>'+
+      '<path d="M44 96h152v48H44z" fill="'+W+'" opacity=".95"/>'+
+      '<path d="M84 144a36 34 0 0 1 72 0z" fill="rgba(18,52,128,.6)"/>'+
+      '<path d="M44 96h152" stroke="'+A+'" stroke-width="3"/><path d="M60 96v-10M84 96v-10M108 96v-10M132 96v-10M156 96v-10M180 96v-10" stroke="'+W+'" stroke-width="5" stroke-linecap="round"/>'+
+      '<path d="M44 118h40M156 118h40" stroke="'+A+'" stroke-width="2.4" stroke-linecap="round"/>'+
+      '<path d="M58 52l28 30" stroke="'+G+'" stroke-width="5" stroke-linecap="round"/><circle cx="56" cy="50" r="6" fill="'+G+'"/>'+
+      '<path d="M96 76l9-3M100 86l11 2M92 68l5-8" stroke="'+G+'" stroke-width="2.8" stroke-linecap="round"/>'+
+      '<g fill="'+T+'"><ellipse cx="146" cy="72" rx="3.2" ry="5.4"/><ellipse cx="160" cy="68" rx="3.2" ry="5.4"/></g>';
+  } else if(id==='giup'){ /* 情けは人の為ならず: thắp sáng cho người, ánh sáng quay về */
+    s='<path d="M50 140h140" stroke="'+T+'" stroke-width="2" stroke-linecap="round"/>'+
+      '<rect x="62" y="88" width="28" height="52" rx="4" fill="'+W+'"/><rect x="150" y="104" width="28" height="36" rx="4" fill="'+W+'"/>'+
+      '<path d="M76 88v-8M164 104v-8" stroke="'+DK+'" stroke-width="2.4" stroke-linecap="round"/>'+
+      '<path d="M76 54q-12 14 0 28q12-14 0-28z" fill="'+G+'"/><path d="M164 72q-9 11 0 23q9-12 0-23z" fill="'+G+'"/>'+
+      '<path d="M90 62q36-30 62 6" stroke="'+G+'" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M146 58l8 11-13 2" stroke="'+G+'" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+      '<path d="M156 118q-38 26-76 0" stroke="'+W+'" stroke-width="3" fill="none" stroke-dasharray="6 6" stroke-linecap="round"/><path d="M86 120l-9-9 12-3" stroke="'+W+'" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+      '<path d="M120 94c-8-8-14-3-10 4l10 9 10-9c4-7-2-12-10-4z" fill="'+G+'" opacity=".95"/>';
   } else {
     var g=HMAP[id].g;
     s='<circle cx="120" cy="80" r="62" fill="rgba(255,255,255,.1)"/><circle cx="120" cy="80" r="46" fill="'+GCOL[g]+'" stroke="#fff" stroke-width="4"/><g transform="translate(96 56) scale(2)">'+glyph(id,GCOL[g]).replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g>';
@@ -2175,15 +2422,20 @@ function canBf(d,id){ var t=dk(), u=H(id); return !!u && d<t && d>=addD(t,-3) &&
 function mark(d,id){ return (S.log[d]||{})[id]||''; }
 function dayCount(id){ var n=0; for(var d in S.log){ var m=S.log[d][id]; if(m==='y'||m==='p') n++; } return n; }
 function daysAt(id){ var u=H(id), n=0; if(!u) return 0; for(var d in S.log){ var m=S.log[d][id]; if(m==='y'||m==='p') n++; } return n; }
-function needOf(id){ return LV_NEED[H(id).lv]; }
-function ready(id){ var u=H(id); return !!u && u.lv<3 && daysAt(id)>=LV_NEED[u.lv]; }
+function isDip(id){ var h=HMAP[id]; return !!(h && h.cond); }
+function needFor(id,lv){ return (isDip(id)?LV_NEED_D:LV_NEED)[lv]; }
+function unitOf(id){ return isDip(id)?'lần':'ngày'; }
+function needOf(id){ return needFor(id,H(id).lv); }
+function weekCount(id,ws){ var n=0; for(var i=0;i<7;i++){ var m=mark(addD(ws,i),id); if(m==='y'||m==='p') n++; } return n; }
+function xRun(id,upTo){ var n=0, d=upTo; while(n<30 && mark(d,id)==='x'){ n++; d=addD(d,-1); } return n; }
+function ready(id){ var u=H(id); return !!u && u.lv<3 && daysAt(id)>=needFor(id,u.lv); }
 function mastered(id){ var u=H(id); return !!u && !!u.master; }
-function lvPct(id){ var u=H(id); if(!u) return 0; return Math.min(1, daysAt(id)/LV_NEED[u.lv]); }
+function lvPct(id){ var u=H(id); if(!u) return 0; return Math.min(1, daysAt(id)/needFor(id,u.lv)); }
 function hname(id){ var h=HMAP[id]; if(id==='bot' && H(id) && H(id).bad){ var b=badLabel(H(id)); if(b) return 'Giảm dần: '+b.toLowerCase(); } return h.t; }
 function sname(id){ return HMAP[id].s; }
 function badLabel(u){ if(!u||!u.bad) return ''; if(u.bad==='khac') return u.badOther||'Thói quen khác'; for(var i=0;i<BAD_OPTS.length;i++){ if(BAD_OPTS[i][0]===u.bad) return BAD_OPTS[i][1]; } return ''; }
 function formula(id){ var u=H(id); if(!u) return ''; return 'Khi '+esc(u.anchor)+', tôi sẽ '+esc(u.act)+(u.who?' để trở thành '+esc(u.who):'')+'.'; }
-function cellMark(d,id,t){ var m=mark(d,id), u=H(id); return m==='y'?hanko('y'):m==='p'?hanko('p'):m==='x'?xDot():(m==='n'||(u&&d<t&&d>=u.since))?missDot():''; }
+function cellMark(d,id,t){ var m=mark(d,id), u=H(id); return m==='y'?hanko('y'):m==='p'?hanko('p'):m==='x'?xDot():(m==='n'||(u&&!isDip(id)&&d<t&&d>=u.since))?missDot():''; }
 function totalStamps(){ var n=0; for(var d in S.log){ for(var k in S.log[d]){ if(S.log[d][k]==='y') n++; } } return n; }
 function ciDays(){ return Object.keys(S.ci).length; }
 function streak(){
@@ -2233,7 +2485,7 @@ function bigStamp(kind){ var o=document.createElement('div'); o.className='stamp
    Cả trang cuộn theo tài liệu để thanh trình duyệt tự ẩn khi lướt.
    ========================================================= */
 var TAB='today', NBTAB='sum', PG=0, NBOPEN=false, JDAY=null;
-var PAGES=[['deck','Thẻ'],['prog','Tổng quan'],['nb','Nhật ký']];
+var PAGES=[['deck','Thẻ'],['prog','Tuần'],['nb','Nhật ký']];
 function shellHTML(){
   return '<header class="ahd" id="ahd"><div class="ahd__in"><span class="hdate" id="hdate"></span><button class="hstreak" id="hpts" data-act="streak"></button>'+
     '<button class="gear" id="gear" aria-label="Sổ tay">'+ic('dots')+'<i class="dot" id="gdot" hidden></i></button></div></header>'+
@@ -2242,7 +2494,7 @@ function shellHTML(){
 function renderTop(bump){
   var p=$('#hpts'); if(!p) return; var n=streak();
   p.innerHTML='<span class="'+(bump?'bump':'')+'">'+ic('fire')+'<b>'+n+'</b> ngày</span>'; p.setAttribute('aria-label','Chuỗi '+n+' ngày liên tiếp');
-  var g=$('#gdot'); if(g) g.hidden=!S.nbDot;
+  var g=$('#gdot'); if(g){ g.hidden=!(S.nbDot||bkDue()); g.className='dot'+(bkDue()?' red':''); }
 }
 function renderNav(){ renderBar(); }
 function renderBar(){
@@ -2340,7 +2592,7 @@ function vOnboard(){
       '<div><label class="lbl" for="obName">Tên của bạn</label><input class="inp" id="obName" autocomplete="name" placeholder="Ví dụ: Minh Anh"></div>'+
       '<div><label class="lbl" for="obCls">Lớp</label><input class="inp" id="obCls" placeholder="Ví dụ: E696"></div>'+
       '<div><label class="lbl" for="obT">Thầy cô kỹ năng</label>'+teacherSelect('obT')+'</div>'+
-      '<button class="btn btn--wide invite" data-act="obGo">Bắt đầu</button>'+
+      '<button class="btn btn--wide invite" data-act="obGo">Bắt đầu</button><label class="linkb" style="cursor:pointer;text-align:center;display:block">Mình đã có file bản sao<input type="file" accept=".json,application/json" id="restoreF" class="sr"></label>'+
     '</div><p class="note center" style="margin-top:12px">Bài làm lưu trên điện thoại của bạn.</p></div>';
 }
 function obGo(){
@@ -2380,16 +2632,16 @@ function cuPaths(n,C){
   };
   return P[n]||P.sao;
 }
-function cuDef(id,u){
+function cuDef(id,u){ 
   var who=(u.who||'').trim();
   return {id:id, custom:true, g:u.g||5, icon:u.icon||'sao', s:short(u.name||'Thẻ của tôi',16), t:u.name||'Thẻ của tôi',
-          who:(who?[who]:[]).concat(CU_WHO), tiers:[u.act||''], act:u.act||'', anchors:CU_ANCH, combos:[], myWhy:u.why||''};
+          who:(who?[who]:[]).concat(CU_WHO), tiers:[u.act||''], act:u.act||'', anchors:CU_ANCH, combos:[], myWhy:u.why||'', cond:!!u.dip};
 }
 function regCustom(st){
   st=st||S; var id;
   for(id in HMAP){ if(HMAP[id].custom) delete HMAP[id]; }
   var c=(st&&st.custom)||{};
-  for(id in c){ var h=st.habits&&st.habits[id]; HMAP[id]=cuDef(id,{name:c[id].name,icon:c[id].icon,g:c[id].g,act:c[id].act,why:c[id].why,who:h?h.who:''}); }
+  for(id in c){ var h=st.habits&&st.habits[id]; HMAP[id]=cuDef(id,{name:c[id].name,icon:c[id].icon,g:c[id].g,act:c[id].act,why:c[id].why,dip:c[id].dip,who:h?h.who:''}); }
 }
 function customOnHand(){ return S.slots.filter(function(id){ return id && HMAP[id] && HMAP[id].custom; }).length; }
 function customIds(){ return Object.keys(S.custom||{}).filter(function(id){ return S.habits[id] && HMAP[id]; }); }
@@ -2405,9 +2657,8 @@ function customBlock(v){
     (full?'Đã đủ '+MAX_CUSTOM+' thẻ tự tạo trên tay. Cất bớt một thẻ để tạo thẻ mới.':'Tên, biểu tượng, màu và lý do do bạn chọn · '+n+'/'+MAX_CUSTOM+' trên tay')+'</small></span>'+ic('arrow')+'</button>';
   if(list.length){
     h+='<div class="sgrp"><div class="deck__h"><h2>Thẻ tự tạo</h2><span class="sg__n">'+list.length+'</span></div>';
-    if(v==='card') h+='<div class="strip strip--big">'+list.map(function(id){ return '<div class="bigc" role="button" tabindex="0" data-act="mcard" data-v="'+id+'">'+cardFront(id,{})+'</div>'; }).join('')+'</div>';
-    else h+='<div class="slist">'+list.map(function(id){ var st=cardStatus(id);
-      return '<button class="srow" data-act="mcard" data-v="'+id+'">'+emblem(id,40)+'<span class="sr__b"><b>'+esc(hname(id))+'</b><small>'+esc(short(HMAP[id].myWhy,48))+'</small></span>'+(st[0]?'<span class="stag '+st[1]+'">'+st[0]+'</span>':'')+ic('arrow')+'</button>'; }).join('')+'</div>';
+    h+='<div class="slist">'+list.map(function(id){ var st=libStatus(id);
+      return '<button class="srow" data-act="mcard" data-v="'+id+'">'+emblem(id,40)+'<span class="sr__b"><b>'+esc(hname(id))+'</b></span><span class="lchip '+st[1]+'">'+st[0]+'</span>'+ic('arrow')+'</button>'; }).join('')+'</div>';
     h+='</div>';
   }
   return h;
@@ -2422,7 +2673,7 @@ function openCustom(editId){
   HMAP['__new']=cuDef('__new',{name:'',icon:'sao',g:5,act:'',why:'',who:''});
   ST={id:editId||'__new', cust:true, edit:!!editId, steps:['cn','k','a','w','y'], i:0, pick:null, first:null, custom:{},
       anchor:u?u.anchor:'', act:u?u.act:'', who:u?u.who:'', bad:'', badOther:'',
-      name:c?c.name:'', icon:c?c.icon:'sao', col:c?c.g:5, why:c?c.why:''};
+      name:c?c.name:'', icon:c?c.icon:'sao', col:c?c.g:5, why:c?c.why:'', rhy:(c&&c.dip)?'p':'d'};
   openOv(''); drawStart();
 }
 function cuStepName(){
@@ -2432,6 +2683,7 @@ function cuStepName(){
     '<div class="tiny muted" id="cuCnt" style="text-align:right;margin-bottom:10px">'+ST.name.length+'/30</div>'+
     '<div class="qlab">Biểu tượng</div><div class="igrid">'+CU_ICONS.map(function(o){ return '<button class="g'+ST.col+(ST.icon===o[0]?' on':'')+'" data-act="cuIcon" data-v="'+o[0]+'" aria-label="'+esc(o[1])+'" aria-pressed="'+(ST.icon===o[0])+'">'+glyph('cu_'+o[0],GCOL[ST.col])+'</button>'; }).join('')+'</div>'+
     '<div class="qlab">Màu</div><div class="swrow">'+CU_COLORS.map(function(o){ return '<button class="g'+o[1]+(ST.col===o[1]?' on':'')+'" data-act="cuCol" data-v="'+o[1]+'" aria-label="'+esc(o[0])+'" aria-pressed="'+(ST.col===o[1])+'">'+(ST.col===o[1]?'✓':'')+'</button>'; }).join('')+'</div>';
+  h+='<div class="qlab">Nhịp của thẻ</div>'+(ST.edit?'<p class="muted small" style="margin:0">'+(ST.rhy==='p'?'Khi gặp dịp · tính theo số lần.':'Hằng ngày · tính theo số ngày.')+'</p>':'<div class="rhyrow" role="radiogroup"><button class="'+(ST.rhy==='d'?'on':'')+'" role="radio" aria-checked="'+(ST.rhy==='d')+'" data-act="cuRhy" data-v="d"><b>Hằng ngày</b><small>Việc ngày nào cũng làm được</small></button><button class="'+(ST.rhy==='p'?'on':'')+'" role="radio" aria-checked="'+(ST.rhy==='p')+'" data-act="cuRhy" data-v="p"><b>Khi gặp dịp</b><small>Chỉ làm khi có tình huống</small></button></div>');
   if(ST.edit) h+='<div style="margin-top:18px"><button class="btn btn--ghost btn--sm" style="color:#B23A2E" data-act="cuDel" data-v="'+ST.id+'">Xóa thẻ này</button></div>';
   return h;
 }
@@ -2451,7 +2703,7 @@ function commitCustom(){
   if(!ST.edit){
     if(customOnHand()>=MAX_CUSTOM || S.slots.indexOf(null)<0){ closeOv(); render(); toast('Chưa còn chỗ cho thẻ mới. Cất bớt một thẻ trước nhé.',4500); return; }
     S.cseq=(S.cseq||0)+1; id='u'+S.cseq; while(S.custom[id]||S.habits[id]){ S.cseq++; id='u'+S.cseq; }
-    S.custom[id]={name:nm, icon:ST.icon, g:ST.col, act:act, why:why, born:t};
+    S.custom[id]={name:nm, icon:ST.icon, g:ST.col, act:act, why:why, born:t, dip:ST.rhy==='p'};
     S.habits[id]={status:'active', since:t, lv:1, lvSince:t, anchor:an, act:act, who:who, bad:'', badOther:'', quiz:''};
     S.order.push(id); S.learnedXP[id]=1; S.seen[id]=1;
     regCustom(); PICK=null; placeInSlot(id);
@@ -2484,8 +2736,8 @@ function cuTierSheet(id){
 /* =========================================================
    TQ12 · HƯỚNG DẪN LẦN ĐẦU (ngay trên màn hình Thẻ, gồm cả “Thêm vào màn hình chính”)
    ========================================================= */
-function nepLine(id){ var u=H(id); if(!u || u.master || u.status==='keep') return ''; var left=Math.max(0,LV_NEED[3]-daysAt(id));
-  return '<p class="nep">Thành nếp khi đủ '+LV_NEED[3]+' ngày rèn'+(left?' · còn <b>'+left+'</b> ngày':'')+'</p>'; }
+function nepLine(id){ var u=H(id); if(!u || u.master || u.status==='keep') return ''; var nd=needFor(id,3), left=Math.max(0,nd-daysAt(id));
+  return '<p class="nep">Thành nếp khi đủ '+nd+' '+unitOf(id)+' rèn'+(left?' · còn <b>'+left+'</b> '+unitOf(id):'')+'</p>'; }
 
 /* =========================================================
    TQ14 · GỢI Ý CÔNG THỨC: [Khi…, tôi sẽ…, để trở thành…]
@@ -2555,25 +2807,26 @@ function sugBox(){
   return h;
 }
 
-var GOPEN=null;
+var GOPEN=null, GDSHOW=false;
 function anyStamp(){ for(var d in S.log){ for(var k in S.log[d]){ var m=S.log[d][k]; if(m==='y'||m==='p') return true; } } return false; }
 function gOpen(){ return GOPEN===null ? handList().length===0 : GOPEN; }
 function guideSteps(){
   var ios=isIOS(), first=handList()[SLOT]||handList()[0];
   return [
+    {t:'Thêm app vào màn hình chính', d:ios?'Làm trước khi nhập bài: Safari › Chia sẻ › “Thêm vào MH chính”, rồi mở app bằng biểu tượng Shin.':'Làm trước khi nhập bài: Chrome › ⋮ › “Thêm vào màn hình chính”, rồi mở app bằng biểu tượng Shin.', done:isStandalone()||!!S.gHome, btn:['homeg','Xem cách']},
     {t:'Học Bài 1: Bắt đầu thật nhỏ', d:'4 thẻ ngắn, khoảng 3 phút. Giúp bạn chọn việc vừa sức.', done:!!S.les.b1, btn:['lsOpen','Học Bài 1','b1']},
     {t:'Chọn thẻ đầu tiên', d:'Chạm “Thêm” để rút một thẻ có sẵn, hoặc tự tạo thẻ của riêng bạn.', done:Object.keys(S.habits).length>0, btn:['pick','Thêm thẻ']},
-    {t:'Lật thẻ', d:'Chạm vào thẻ hoặc nút ↻ Lật để xem mặt sau.', done:!!S.gFlip},
+    {t:'Lật thẻ', d:'Chạm vào thẻ hoặc nút ↻ bên dưới thẻ để xem mặt sau.', done:!!S.gFlip},
     {t:'Xem Cách làm', d:'Chạm biểu tượng quyển sách ở góc thẻ: vì sao, các bước, thực tập.', done:Object.keys(S.howSeen||{}).length>0, btn:first&&HMAP[first]&&!HMAP[first].custom?['how','Xem Cách làm',first]:null},
-    {t:'Đóng dấu', d:'Làm xong việc nhỏ thì chạm “Đóng dấu”, rồi ghi vài chữ nếu muốn.', done:anyStamp()},
-    {t:'Check-in tối', d:'Mỗi tối chạm nút Check-in ở góc phải thanh dưới.', done:ciDays()>0},
-    {t:'Thêm app vào màn hình chính', d:ios?'Mở bằng Safari: Chia sẻ › “Thêm vào MH chính”.':'Mở bằng Chrome: ⋮ › “Thêm vào màn hình chính”.', done:isStandalone()||!!S.gHome, btn:['homeg','Xem cách']}
+    {t:'Đóng dấu', d:'Làm xong việc nhỏ thì chạm nút con dấu vàng ở góc thẻ, rồi ghi vài chữ nếu muốn.', done:anyStamp()},
+    {t:'Check-in tối', d:'Mỗi tối chạm nút Check-in ở góc phải thanh dưới.', done:ciDays()>0}
   ];
 }
 function guideBox(){
-  if(S.guideOff) return '';
+  if(S.guideOff || (S.guideDone && !GDSHOW)) return '';
   var st=guideSteps(), done=0, cur=-1, i, op=gOpen();
   for(i=0;i<st.length;i++){ if(st[i].done) done++; else if(cur<0) cur=i; }
+  if(cur<0 && !S.guideDone){ S.guideDone=1; GDSHOW=true; save(); }
   if(cur<0) return '<div class="gd gd--done"><div class="gd__bar"><span class="gd__ring">✓</span><span class="gd__t"><small>LÀM QUEN · '+st.length+'/'+st.length+'</small><b>Bạn đã làm quen xong!</b></span><button class="btn btn--ghost btn--sm" data-act="guideOff">Ẩn</button></div></div>';
   var h='<div class="gd'+(op?' open':'')+'"><button class="gd__bar" data-act="gtoggle" aria-expanded="'+op+'"><span class="gd__ring">'+done+'/'+st.length+'</span><span class="gd__t"><small>LÀM QUEN</small><b>'+(op?st.length+' việc đầu tiên cùng Shin':'Tiếp theo: '+esc(st[cur].t))+'</b></span>'+ic('arrow')+'</button>';
   if(op) h+='<div class="gd__l">'+st.map(function(s2,k){
@@ -2605,7 +2858,7 @@ function vToday(){
   h+='<div class="stagewrap"><div class="stage'+(n>1?' multi':'')+'" id="stage" tabindex="0" aria-roledescription="dải thẻ" aria-label="Thẻ '+(SLOT+1)+' trên '+n+'. Dùng mũi tên để đổi thẻ, chạm để lật.">'+
     '<div class="track" id="track">'+list.map(function(id,i){ return '<div class="cs" data-i="'+i+'">'+cardFaces(id,{home:true,day:vd,back:i===SLOT&&SBACK})+'</div>'; }).join('')+'</div></div></div>';
   h+='<div class="sdots" id="sdots">'+(n>1?'<button class="arr2" data-act="slprev" aria-label="Thẻ trước">'+ic('back')+'</button>':'')+
-    '<span class="dd2">'+list.map(function(_,i){ return '<button class="'+(i===SLOT?'on':'')+'" data-act="slgo" data-v="'+i+'" aria-label="Thẻ '+(i+1)+'"></button>'; }).join('')+'</span>'+'<button class="flipb" data-act="flipHome" aria-label="Lật thẻ">'+ic('redo')+'<span>Lật</span></button>'+
+    '<span class="dd2">'+list.map(function(_,i){ return '<button class="'+(i===SLOT?'on':'')+'" data-act="slgo" data-v="'+i+'" aria-label="Thẻ '+(i+1)+'"></button>'; }).join('')+'</span>'+'<button class="flipb" data-act="flipHome" aria-label="Lật thẻ">'+ic('redo')+'</button>'+
     (n>1?'<button class="arr2 r" data-act="slnext" aria-label="Thẻ sau">'+ic('back')+'</button>':'')+'</div>';
   return h;
 }
@@ -2645,7 +2898,7 @@ function slideTo(dir){
 }
 function flipHome(){ var f=$('.cs.cur .flip'); if(!f) return; if(!S.gFlip){ S.gFlip=1; save(); gdRefresh(); } SBACK=!SBACK; f.classList.toggle('flipped',SBACK); setTimeout(function(){ layoutCards(0,false); },20); }
 /* ---- con dấu + ghi nhanh ---- */
-function holdBtn(id,day){ return '<button class="hold tap" data-act="note" data-v="'+id+'|'+day+'" aria-label="Đóng dấu"><span>Đóng<br>dấu</span></button>'; }
+function holdBtn(id,day){ return '<button class="hold tap" data-act="note" data-v="'+id+'|'+day+'" aria-label="Đóng dấu"><svg class="sti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5h4a1 1 0 0 1 1 1v3a2.4 2.4 0 0 0 1.3 2.1l.4.2a2.2 2.2 0 0 1 1.2 2V13H6.1v-1.2a2.2 2.2 0 0 1 1.2-2l.4-.2A2.4 2.4 0 0 0 9 7.5v-3a1 1 0 0 1 1-1z"/><path d="M5 16.8h14M7.5 20.3h9"/></svg></button>'; }
 function stampBtn(id,day){
   day=day||dk(); var m=mark(day,id);
   if(m==='y') return '<button class="hold is" data-act="undone" data-v="'+id+'|'+day+'" aria-label="Đã đóng dấu. Chạm để bỏ">'+hanko('y').replace('<svg','<svg class="hk"')+'</button>';
@@ -2661,7 +2914,7 @@ function openNote(id,day){
     '<textarea class="inp" id="ntIn" data-in="note" rows="2" style="min-height:60px" placeholder="Chạm gợi ý bên dưới hoặc ghi vài chữ (không bắt buộc)">'+esc(old)+'</textarea>'+
     '<div class="row" style="justify-content:space-between;margin:6px 0 8px"><span class="tiny muted" id="ntWc">Từ 2 chữ</span><button class="btn btn--sm" id="ntGo" data-act="ntSave"'+(words(old)>=2?'':' disabled')+'>Đóng dấu</button></div>'+
     '<div>'+E.o.map(function(o){ return '<button class="chp" data-act="ntChip" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join('')+'</div>';
-  openMini(h); ntRefresh(); setTimeout(function(){ var i=$('#ntIn'); if(i) i.focus(); },150);
+  openMini(h); ntRefresh();
 }
 function commitStamp(){
   var id=NT.id, d=NT.day, t=dk(); S.log[d]=S.log[d]||{}; var prev=S.log[d][id];
@@ -2674,7 +2927,7 @@ function commitStamp(){
   addPts(d!==t?5:(prev==='p'?5:10),0,d!==t?'Đã ghi bù.':lines[Math.floor(Math.random()*lines.length)]);
   var u=H(id);
   if(!wasReady && ready(id)) setTimeout(function(){ toast('Thẻ '+esc(sname(id))+' đủ ngày rồi! Lật thẻ ra để lên cấp.',5000); },1400);
-  if(u.lv===3 && !u.master && daysAt(id)>=LV_NEED[3]){ u.master=t; save(); setTimeout(function(){ masterShow(id); },1400); }
+  if(u.lv===3 && !u.master && daysAt(id)>=needFor(id,3)){ u.master=t; save(); setTimeout(function(){ masterShow(id); },1400); }
   save(true); refreshAll();
 }
 /* =========================================================
@@ -2753,8 +3006,8 @@ function cardFront(id,o){
   if(u) f+='<div class="ct__f"><div><small>KHI</small><span>'+esc(u.anchor)+'</span></div><div><small>TÔI SẼ</small><span>'+esc(u.act)+'</span></div></div>'+days7(id,day);
   else f+='<div class="ct__f"><div><small>BẮT ĐẦU</small><span>'+esc(x.tiers[0])+'</span></div><div><small>TRỞ THÀNH</small><span>'+esc(x.who[0])+'</span></div></div>'+days7('__',day);
   f+='<div class="ct__stub">';
-  if(u){ var n=daysAt(id), need=LV_NEED[lv];
-    f+='<div class="ct__own"><small>CHỦ THẺ</small><b>'+esc(S.name)+'</b><small>Rèn từ '+dm(u.since)+' · '+Math.min(n,need)+'/'+need+' ngày</small><div class="meter"><i style="width:'+Math.round(lvPct(id)*100)+'%"></i></div></div>';
+  if(u){ var n=daysAt(id), need=needFor(id,lv);
+    f+='<div class="ct__own"><small>CHỦ THẺ</small><b>'+esc(S.name)+'</b><small>Rèn từ '+dm(u.since)+' · '+Math.min(n,need)+'/'+need+' '+unitOf(id)+(isDip(id)?' · khi gặp dịp':'')+'</small><div class="meter"><i style="width:'+Math.round(lvPct(id)*100)+'%"></i></div></div>';
     if(!slotted) f+='<button class="btn btn--sm" data-act="slotit" data-v="'+id+'">Đưa lên tay</button>';
     else if(u.status==='pause') f+='<button class="btn btn--ghost btn--sm" data-act="unslot" data-v="'+id+'">Cất thẻ</button>';
     else if(ready(id)) f+='<button class="btn btn--gold btn--sm invite" data-act="lvup" data-v="'+id+'">Lên cấp</button>';
@@ -2764,20 +3017,45 @@ function cardFront(id,o){
   f+='</div></div>';
   return f;
 }
-var SENPAI_FACES=['Senpai Minh','Senpai Hạnh','Senpai Vy','Senpai Tuấn','Senpai Linh'];
+var SENPAI_FACES=['Senpai Minh','Senpai Hạnh','Senpai Vy','Senpai Tuấn','Senpai Linh','Senpai Phong'];
+var SP_INFO=[{g:'Anh',ind:'nhà máy'},{g:'Chị',ind:'chế biến thực phẩm'},{g:'Chị',ind:'điều dưỡng'},{g:'Anh',ind:'xây dựng'},{g:'Chị',ind:'nhà hàng, khách sạn'},{g:'Anh',ind:'gara ô tô'}];
+var SPV={chao:1,som:1,camon:1,giup:1,vandong:2,quansat:2,gopy:2,'5phut':2,chitieu:4,loihua:4,viecko:4,horenso:4,memo:0,'5s':0,xinloi:0,camxuc:0,anuong:3,ngu:3,bot:5,tiengnhat:5};
+function spOf(id){ return SPV[id]!==undefined?SPV[id]:hashCode(id)%6; }
+var BEN={
+ chao:'Một lời chào chỉ mất vài giây, mà người nghe nhớ bạn lâu hơn bạn nghĩ.',
+ som:'Đến sớm năm phút, bạn bước vào việc bằng sự bình tĩnh, không phải chạy vội.',
+ memo:'Ghi ra giấy thì đầu óc nhẹ hơn, và bạn khỏi phải hỏi lại cùng một điều hai lần.',
+ '5s':'Mỗi thứ có chỗ của nó thì tìm nhanh hơn, làm cũng đỡ rối hơn.',
+ camon:'Một lời cảm ơn cụ thể làm người giúp bạn vui, và lần sau họ sẵn lòng giúp tiếp.',
+ xinloi:'Nhận lỗi sớm thì chuyện nhỏ còn nhỏ, và lần sau người ta dễ tin bạn hơn.',
+ loihua:'Giữ được lời hứa nhỏ với chính mình, bạn dần tin mình giữ được cả lời hứa lớn.',
+ '5phut':'Những quãng chờ cộng lại thành giờ học mà bạn không phải lấy từ giấc ngủ.',
+ gopy:'Góp ý nghe thì khó chịu, nhưng thường là cách nhanh nhất để biết mình nên sửa gì.',
+ camxuc:'Gọi được tên cảm xúc thì nó bớt lớn, và bạn có thêm vài giây để chọn cách phản ứng.',
+ vandong:'Vài phút cử động mỗi ngày giúp người tỉnh hơn, tối ngủ cũng dễ hơn.',
+ anuong:'Ăn đủ bữa thì có sức học, sức làm, và đỡ cáu những lúc mệt.',
+ ngu:'Ngủ đủ thì sáng mai đầu óc nhẹ hơn, học vào cũng nhanh hơn.',
+ bot:'Bớt từng chút thì dễ hơn bỏ phắt, và bạn thấy rõ mình làm được.',
+ chitieu:'Biết tiền đi đâu thì bạn chủ động hơn, và dành được cho điều mình thật sự cần.',
+ tiengnhat:'Mỗi câu nói thử là một lần quen tai, quen miệng. Nói sai cũng là đang học.',
+ quansat:'Nhìn kỹ rồi hỏi đúng một câu giúp bạn vào việc nhanh hơn là cứ loay hoay một mình.',
+ viecko:'Việc hơi ngại, làm được rồi là tự tin lên một bậc, và người ta để ý đến bạn.',
+ horenso:'Báo sớm, báo rõ thì người khác đỡ lo, và bạn đỡ phải gánh một mình.',
+ giup:'Giúp một việc nhỏ thôi mà cả nhóm gần nhau hơn, và lần sau bạn cũng có người giúp.'
+};
 function plain(h){ return String(h).replace(/<[^>]+>/g,''); }
 function teaser(t){ t=plain(t); var k=t.indexOf('. '); return k>0 && k<120 ? t.slice(0,k+1) : (t.length>90?t.slice(0,88)+'…':t); }
 function cardBack(id){
-  var x=HMAP[id], u=H(id), lv=u?u.lv:0, pv=x.prov||x.jp, v=hashCode(id)%5;
+  var x=HMAP[id], u=H(id), lv=u?u.lv:0, pv=x.prov||x.jp, v=spOf(id);
   if(x.custom) return cardBackMine(id);
   var b='<div class="tkb2'+(lv===3?' lv3':'')+'"><div class="tb__art"><div class="tb__top"><span>Ý NGHĨA · 意味</span>'+stars(lv,11,true)+'</div>'+metaSVG(id)+'</div>'+
     '<div class="tb__body"><div class="pv"><div style="flex:1;min-width:0"><div class="jp">'+esc(pv.j)+'</div><small class="rmj">'+esc(pv.r)+'</small><div class="vi">'+esc(pv.v)+'</div></div><button class="spk" data-act="speak" data-v="'+esc(pv.j)+'" aria-label="Nghe đọc">'+ic('spk')+'</button></div>'+
-    (x.poem?'<div class="poem">'+x.poem.map(function(l){ return '<span>'+esc(l)+'</span>'; }).join('')+'</div>':'<div class="poem"><span>'+esc(x.why?x.why.now:'Để trở thành '+x.who[0]+'.')+'</span></div>');
+    '<div class="poem ben"><span>'+esc(BEN[id]||(x.why?x.why.now:'Để trở thành '+x.who[0]+'.'))+'</span></div>';
   if(x.corner||x.kase) b+='<button class="spk2" data-act="senpai" data-v="'+id+'"><span class="av">'+senpai('smile',v)+'</span><span class="sp__t"><small>SENPAI KỂ</small><span>'+esc(x.kase?x.kase.t:teaser(x.corner))+'</span></span><span class="more">Đọc ›</span></button>';
   return b+'</div></div>';
 }
 function openSenpai(id){
-  var x=HMAP[id], v=hashCode(id)%5, h='<div class="center"><div style="width:96px;margin:0 auto">'+senpai('smile',v)+'</div><h2 style="margin:6px 0 2px">'+SENPAI_FACES[v]+'</h2><p class="muted small" style="margin:0 0 10px">Anh chị khóa trước, đang làm việc ở Nhật · nhân vật hư cấu</p></div>';
+  var x=HMAP[id], v=spOf(id), h='<div class="center"><div style="width:96px;margin:0 auto">'+senpai('smile',v)+'</div><h2 style="margin:6px 0 2px">'+SENPAI_FACES[v]+'</h2><p class="muted small" style="margin:0 0 10px">'+SP_INFO[v].g+' khóa trước, làm việc ở Nhật (ngành '+SP_INFO[v].ind+') · nhân vật hư cấu</p></div>';
   if(x.corner) h+='<div class="say__b" style="font-size:15.5px;line-height:1.6;border-radius:20px">'+x.corner+'</div>';
   if(x.kase) h+='<div class="kase"><small>CHUYỆN TRƯỚC ĐÂY</small><h3>'+esc(x.kase.t)+'</h3><p>'+esc(x.kase.s)+'</p><div class="kase__l"><b>Bài học</b>'+esc(x.kase.l)+'</div></div>';
   openMini(h);
@@ -2790,8 +3068,8 @@ function openCard(id,back){ if(!S.seen[id]){ S.seen[id]=1; save(); } CARD={id:id
 function drawCard(){
   var id=CARD.id, x=HMAP[id];
   sheetSet('<div class="sh__h"><span class="kicker">'+esc(grpName(x))+'</span><button class="x" data-act="close" aria-label="Đóng">'+ic('x')+'</button></div>'+
-    '<div class="cardview">'+cardFaces(id,{back:CARD.back})+'</div><div class="fliprow"><button class="flipb" data-act="flipCard">'+ic('redo')+'<span>Lật thẻ</span></button></div>'+nepLine(id)+
-    '<button class="howbtn" data-act="how" data-v="'+id+'"><span class="hb__i">'+ic('book')+'</span><span><b>Cách làm'+(PRAC[id]?' · Thực tập 30 giây':'')+'</b><small>'+(x.steps?'4 thẻ ngắn, học từng phần':'Các cấp và câu tiếng Nhật')+'</small></span>'+ic('arrow')+'</button>');
+    '<div class="cardview">'+cardFaces(id,{back:CARD.back})+'</div><div class="fliprow"><button class="flipb" data-act="flipCard" aria-label="Lật thẻ">'+ic('redo')+'</button></div>'+nepLine(id)+
+    '<button class="howbtn" data-act="how" data-v="'+id+'"><span class="hb__i">'+ic('book')+'</span><span><b>Cách làm'+(PRAC[id]?' · Thực tập 30 giây':'')+'</b><small>'+(x.steps?'Thẻ ngắn, học từng phần':'Các cấp và câu tiếng Nhật')+'</small></span>'+ic('arrow')+'</button>');
   if(x.custom){ var hb=$('.howbtn',OV); if(hb) hb.remove(); }
   fitText(OV);
 }
@@ -2814,8 +3092,8 @@ function openHow(id){
   if(!S.howSeen[id]){ S.howSeen[id]=1; save(); }
   var x=HMAP[id], cards=[];
   if(x.steps){
-    var c1='<div class="hw__k">'+(x.dlg?'Shin hỏi, Senpai kể':'Vì sao nên làm?')+'</div>';
-    if(x.dlg) c1+=talk(x.dlg, hashCode(id)%5);
+    if(x.dlg) cards.push(['Phỏng vấn','<div class="hw__k">SHIN PHỎNG VẤN SENPAI</div>'+talk(x.dlg, spOf(id))]);
+    var c1='<div class="hw__k">Vì sao nên làm?</div>';
     if(x.ill&&x.ill[0]) c1+='<figure class="ill">'+illSVG(x.ill[0])+'<figcaption>'+esc(ILL_CAP[x.ill[0]]||'')+'</figcaption></figure>';
     if(x.why) c1+='<div class="hw__why"><small>Ở NHẬT</small>'+esc(x.why.jp)+'</div><div class="hw__why"><small>VỚI BẠN</small>'+esc(x.why.now)+'</div>';
     if(x.quote) c1+='<div class="quote">“'+esc(x.quote.q)+'”<small>'+esc(x.quote.by)+'</small></div>';
@@ -3035,7 +3313,7 @@ function stNext(){
    ========================================================= */
 function openLvup(id){
   var u=H(id), nx=u.lv+1, h='<div class="center"><span style="display:inline-block">'+hico(id,'lg')+'</span><h2 style="margin:10px 0 4px">Lên cấp '+LV_NAME[nx]+'</h2><div>'+stars(nx,22)+'</div></div>';
-  if(nx===2) h+='<p class="muted center" style="margin:10px 0">Nhờ bạn cùng tiến xem thẻ và xác nhận bạn đã làm đủ '+LV_NEED[1]+' ngày.</p><label class="lbl" for="luIn">Tên bạn xác nhận</label><input class="inp" id="luIn" placeholder="Ví dụ: Thanh Tâm">';
+  if(nx===2) h+='<p class="muted center" style="margin:10px 0">Nhờ bạn cùng tiến xem thẻ và xác nhận bạn đã làm đủ '+needFor(id,1)+' '+unitOf(id)+'.</p><label class="lbl" for="luIn">Tên bạn xác nhận</label><input class="inp" id="luIn" placeholder="Ví dụ: Thanh Tâm">';
   else h+='<p class="muted center" style="margin:10px 0">Đưa thẻ cho thầy cô xem. Thầy cô sẽ đọc cho bạn một mã 4 số.</p><label class="lbl" for="luIn">Mã thầy cô</label><input class="inp" id="luIn" inputmode="numeric" maxlength="4" placeholder="0000" style="font-size:22px;letter-spacing:.3em;text-align:center">';
   h+='<div class="out out--bad" id="luErr" style="display:none"></div><button class="btn btn--gold btn--wide invite" style="margin-top:12px" data-act="lvGo" data-v="'+id+'">Xác nhận lên cấp</button>';
   openMini(h);
@@ -3055,7 +3333,7 @@ function lvGo(id){
 }
 function masterShow(id){
   openMini('<div class="center"><span style="display:inline-block">'+hico(id,'lg')+'</span><h2 style="margin:10px 0 4px">Thẻ đã Thành nếp!</h2><p class="muted">'+esc(hname(id))+' giờ là một phần con người bạn. Bấm “Sang duy trì” trên thẻ để giữ nhẹ nhàng và có chỗ cho thẻ mới.</p>'+
-    say('shin','cheer','Từng con dấu nhỏ đã làm nên điều này!')+'<button class="btn btn--wide" data-act="card" data-v="'+id+'">Xem thẻ</button></div>');
+    say('shin','proud','Từng con dấu nhỏ đã làm nên điều này!')+'<button class="btn btn--wide" data-act="card" data-v="'+id+'">Xem thẻ</button></div>');
   fanfare(); addPts(80,0,'Thành nếp!');
 }
 
@@ -3064,7 +3342,7 @@ function masterShow(id){
    ========================================================= */
 function vNb(){
   var h='<div class="wrap"><h1 style="margin:2px 0 4px">Sổ tay</h1><div class="tabs" role="tablist">'+
-    [['sum','Tổng quan'],['rep','Báo cáo'],['set','Cài đặt']].map(function(t){ return '<button role="tab" aria-selected="'+(NBTAB===t[0])+'" class="'+(NBTAB===t[0]?'on':'')+'" data-act="nbTab" data-v="'+t[0]+'">'+t[1]+'</button>'; }).join('')+'</div>';
+    [['sum','Tiến bộ'],['rep','Báo cáo'],['set','Cài đặt']].map(function(t){ return '<button role="tab" aria-selected="'+(NBTAB===t[0])+'" class="'+(NBTAB===t[0]?'on':'')+'" data-act="nbTab" data-v="'+t[0]+'">'+t[1]+'</button>'; }).join('')+'</div>';
   h+= NBTAB==='rep'?nbRep() : NBTAB==='set'?nbSet() : nbSum();
   return h+'</div>';
 }
@@ -3092,23 +3370,24 @@ function nbSet(){
   R['info']=setRow('info','user',1,'Thông tin',esc(S.name)+(S.cls?' · '+esc(S.cls):''),'<div class="stack"><div><label class="lbl" for="sN">Tên</label><input class="inp" id="sN" data-in="name" value="'+esc(S.name)+'"></div><div><label class="lbl" for="sC">Lớp</label><input class="inp" id="sC" data-in="cls" value="'+esc(S.cls)+'"></div></div>');
   R['tea']=setRow('tea','teacher',1,'Thầy cô',esc(tName()||'Chưa chọn'),teacherSelect('sT'));
   R['rem']=setRow('rem','bell',3,'Nhắc check-in tối',esc(S.ciTime),'<p>Chạm vào lời nhắc là mở thẳng check-in.</p><input class="inp" type="time" id="sTime" data-in="ciTime" value="'+esc(S.ciTime)+'" style="width:130px"><div style="margin-top:10px"><button class="btn btn--soft btn--sm" data-act="calSmart">'+ic('cal')+'Lưu vào lịch điện thoại</button></div>');
-  R['snd']=setRow('snd','sound',3,'Âm thanh','','', '<button class="tog'+(S.sound?' on':'')+'" data-act="sound" role="switch" aria-checked="'+S.sound+'" aria-label="Âm thanh"></button>');
+  R['snd']=setRow('snd','sound',3,'Âm thanh','','', '<span class="sndt">'+(S.sound?'Đang bật':'Đang tắt')+'</span><button class="sndb'+(S.sound?' on':' off')+'" data-act="sound" role="switch" aria-checked="'+S.sound+'" aria-label="Âm thanh">'+ic('sound')+'</button>');
   R['home']=setRow('home','phone',2,'Thêm vào màn hình chính','','','<button class="btn btn--soft btn--sm" data-act="homeg">Xem cách</button>');
-  R['safe']=setRow('safe','shield',2,'Giữ bài an toàn','Lưu bản sao','<p>Luôn mở app bằng cùng một trình duyệt. Thỉnh thoảng lưu bản sao.</p><div class="row row--wrap"><button class="btn btn--soft btn--sm" data-act="backup">'+ic('down')+'Lưu bản sao</button><label class="btn btn--soft btn--sm" style="cursor:pointer">'+ic('up')+'Khôi phục<input type="file" accept=".json,application/json" id="restoreF" class="sr"></label></div>');
+  R['safe']=setRow('safe','shield',2,'Giữ bài an toàn',bkDue()?'Nên lưu bản sao':(S.lastBackup?'Đã lưu '+dm(S.lastBackup):'Lưu bản sao'),'<p>Luôn mở app bằng cùng một trình duyệt. Thỉnh thoảng lưu bản sao.</p><div class="row row--wrap"><button class="btn btn--soft btn--sm" data-act="backup">'+ic('down')+'Lưu bản sao</button><label class="btn btn--soft btn--sm" style="cursor:pointer">'+ic('up')+'Khôi phục<input type="file" accept=".json,application/json" id="restoreF" class="sr"></label></div>');
   R['gd']=setRow('gd','book',3,'Hướng dẫn lần đầu','','','<button class="btn btn--soft btn--sm" data-act="guideOpen">Mở lại</button>');
   R['cast']=setRow('cast','smile',4,'Bạn đồng hành','Shin, Senpai, Hội Virus','<div class="cast">'+
     '<button data-act="cast" data-v="shin|0">'+shin('hi')+'<b>Shin</b>Huấn luyện viên</button>'+
-    '<button data-act="cast" data-v="senpai|0">'+senpai('hi',0)+'<b>Senpai</b>5 anh chị khóa trước</button>'+
+    '<button data-act="cast" data-v="senpai|0">'+senpai('hi',0)+'<b>Senpai</b>6 anh chị khóa trước</button>'+
     '<button data-act="cast" data-v="virus|0">'+virus('luoi','smug')+'<b>Virus Lười</b>Những cái cớ</button></div><p class="note" style="margin-top:8px">Nhân vật hư cấu. Chạm để đổi.</p>');
   R['tch']=setRow('tch','teacher',4,'Dành cho thầy cô',TMODE?'Đang mở':'',tmodeBody());
   R['wipe']=setRow('wipe','trash',4,'Xóa bài làm','','<p>Xóa toàn bộ bài trên máy này.</p><button class="btn btn--ghost btn--sm" style="color:#B23A2E" data-act="wipe">Xóa bài làm</button>');
-  return setGroup('Của bạn',[R.info,R.tea])+setGroup('Nhắc nhở và âm thanh',[R.rem,R.snd])+setGroup('Dùng trên điện thoại',[R.home,R.safe])+setGroup('Làm quen',[R.gd,R.cast])+setGroup('Thầy cô và dữ liệu',[R.tch,R.wipe])+'<p class="ver">'+esc(APP_NAME)+' · '+APP_VER+'</p>';
+  var bkc=bkDue()?'<div class="bkcard"><b>Đã '+bkDays()+' ngày chưa lưu bản sao</b><p>Lưu một file nhỏ về máy để bài làm không mất khi đổi điện thoại hoặc xóa trình duyệt.</p><div class="row row--wrap"><button class="btn btn--sm" data-act="backup">'+ic('down')+'Lưu bản sao</button><button class="btn btn--ghost btn--sm" data-act="bkLater">Nhắc sau 2 ngày</button></div></div>':'';
+  return bkc+setGroup('Của bạn',[R.info,R.tea])+setGroup('Nhắc nhở và âm thanh',[R.rem,R.snd])+setGroup('Dùng trên điện thoại',[R.home,R.safe])+setGroup('Làm quen',[R.gd,R.cast])+setGroup('Thầy cô và dữ liệu',[R.tch,R.wipe])+'<p class="ver">'+esc(APP_NAME)+' · '+APP_VER+'</p>';
 }
 function tmodeBody(){
   if(!TMODE) return '<p>Nhập mã PIN thầy cô để tạo mã xác nhận lên cấp 3.</p><div class="row"><input class="inp" id="tPin" inputmode="numeric" placeholder="PIN" style="width:120px"><button class="btn btn--soft btn--sm" data-act="tPin">Mở</button></div>';
   return '<p>Nhập tên học viên đúng như trên app của học viên. Mã đổi mỗi ngày.</p><input class="inp" id="tName" data-in="tName" placeholder="Tên học viên"><div class="tcode" id="tCode">····</div>';
 }
-var CAST={shin:['hi','cheer','think','wow','worry','sleep'],senpai:['0','1','2','3','4'],virus:['luoi','ngai','quen','demai']};
+var CAST={shin:['hi','cheer','think','wow','worry','sleep','moved','comfort','proud','yawn','curious'],senpai:['0','1','2','3','4','5'],virus:['luoi','ngai','quen','demai']};
 
 /* ---------- In nhật ký A4 ---------- */
 function buildPrint(){
@@ -3119,7 +3398,7 @@ function buildPrint(){
     for(var d in S.why){ var w=S.why[d][id]; if(w) rs[w]=(rs[w]||0)+1; }
     var rtxt=REASONS.filter(function(r){ return rs[r[0]]; }).map(function(r){ return r[1]+' ('+rs[r[0]]+')'; }).join(', ');
     var cf=u.cf||{};
-    h+='<div class="habit"><p><b>'+esc(hname(id))+'</b> · Cấp '+u.lv+' '+LV_NAME[u.lv]+(u.master?' · Thành nếp':'')+' · '+(S.slots.indexOf(id)<0?'Đã cất':u.status==='pause'?'Tạm dừng':'Đang rèn')+' · bắt đầu '+dm(u.since)+' · tổng '+dayCount(id)+' ngày'+(x.custom?' · thẻ tự tạo':' · combo '+x.combos.join(', '))+
+    h+='<div class="habit"><p><b>'+esc(hname(id))+'</b> · Cấp '+u.lv+' '+LV_NAME[u.lv]+(u.master?' · Thành nếp':'')+' · '+(S.slots.indexOf(id)<0?'Đã cất':u.status==='pause'?'Tạm dừng':'Đang rèn')+' · bắt đầu '+dm(u.since)+' · tổng '+dayCount(id)+(isDip(id)?' lần · khi gặp dịp':' ngày')+(x.custom?' · thẻ tự tạo':' · combo '+x.combos.join(', '))+
       '<br>Công thức: '+formula(id)+(x.custom?'<br>Lý do chọn: '+esc(x.myWhy||''):'')+(cf[2]?'<br>Lên cấp 2 ngày '+dm(cf[2].d)+', bạn xác nhận: '+esc(cf[2].by):'')+(cf[3]?' · Lên cấp 3 ngày '+dm(cf[3].d)+', thầy cô xác nhận':'')+(rtxt?'<br>Lý do chưa làm: '+esc(rtxt):'')+'</p>';
     h+='<table><tr><th>Tuần</th>'+WDS.map(function(w){ return '<th>'+w+'</th>'; }).join('')+'</tr>';
     var ws=wkStart(t); for(var r=3;r>=0;r--){ var s=addD(ws,-7*r); h+='<tr><td>'+dm(s)+'</td>'; for(var c=0;c<7;c++){ var m=mark(addD(s,c),id); h+='<td style="text-align:center">'+(m==='y'?'●':m==='p'?'◐':m==='n'?'○':m==='x'?'·':'')+'</td>'; } h+='</tr>'; }
@@ -3177,16 +3456,19 @@ function ntRefresh(){ var w=words(NT.text), b=$('#ntGo'), c=$('#ntWc'); if(b) b.
 /* =========================================================
    TQ11 · ĐO TIẾN BỘ THẬT: độ đều, thành nếp, sức sống thói quen duy trì
    ========================================================= */
-function consistency(id,n){ n=n||28; var t=dk(), u=H(id); if(!u) return 0; var st=u.since>addD(t,-(n-1))?u.since:addD(t,-(n-1)), days=0, ok=0, d=st;
+function consistency(id,n){ n=n||28; var t=dk(), u=H(id); if(!u) return 0;
+  if(isDip(id)){ var ok2=0, no2=0, d2=addD(t,-(n-1)); while(d2<=t){ var m2=mark(d2,id); if(m2==='y'||m2==='p') ok2++; else if(m2==='n') no2++; d2=addD(d2,1); } return (ok2+no2)?Math.round(ok2/(ok2+no2)*100):0; } var st=u.since>addD(t,-(n-1))?u.since:addD(t,-(n-1)), days=0, ok=0, d=st;
   while(d<=t){ days++; var m=mark(d,id); if(m==='y'||m==='p') ok++; d=addD(d,1); } return days?Math.round(ok/days*100):0; }
 function last7(id){ var t=dk(), c=0; for(var i=0;i<7;i++){ var m=mark(addD(t,-i),id); if(m==='y'||m==='p') c++; } return c; }
-function vitality(id){ var c=last7(id); return c>=3?'live':c>=1?'fade':'web'; }
+function last14(id){ var t=dk(), c=0; for(var i=0;i<14;i++){ var m=mark(addD(t,-i),id); if(m==='y'||m==='p') c++; } return c; }
+function vitality(id){ if(isDip(id)){ var t0=dk(), ok=0, no=0; for(var i=0;i<14;i++){ var m=mark(addD(t0,-i),id); if(m==='y'||m==='p') ok++; else if(m==='n') no++; } return ok>=1?'live':no>=1?'fade':'live'; }
+  var c=last7(id); return c>=3?'live':c>=1?'fade':'web'; }
 var VIT={live:['Đang sống','#17804A','#E3F5EA'],fade:['Đang phai','#B07A0A','#FFF4D6'],web:['Mạng nhện','#6B7280','#EEF0F4']};
 function webIcon(){ return '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/><path d="M12 7.5l3.2 1.3 1.3 3.2-1.3 3.2-3.2 1.3-3.2-1.3-1.3-3.2 1.3-3.2z"/></svg>'; }
 function vitTag(id){ var v=VIT[vitality(id)]; return '<span class="vit" style="color:'+v[1]+';background:'+v[2]+'">'+(vitality(id)==='web'?webIcon():'')+v[0]+'</span>'; }
 function masteredCount(){ var n=0; for(var k in S.habits){ if(S.habits[k].master) n++; } return n; }
 function notesCount(){ var n=0; for(var d in S.notes){ for(var k in S.notes[d]){ if(S.notes[d][k]) n++; } } for(var c in S.ci){ if(S.ci[c].note) n++; } return n; }
-function avgConsistency(){ var l=handList(); if(!l.length) return 0; var s=0; l.forEach(function(id){ s+=consistency(id); }); return Math.round(s/l.length); }
+function avgConsistency(){ var l=handList().filter(function(id){ if(!isDip(id)) return true; for(var i=0;i<28;i++){ var m=mark(addD(dk(),-i),id); if(m==='y'||m==='p'||m==='n') return true; } return false; }); if(!l.length) return 0; var s=0; l.forEach(function(id){ s+=consistency(id); }); return Math.round(s/l.length); }
 function longestStreak(){ var d=S.created, t=dk(), best=0, cur=0, miss=0, g=0; while(d<=t && g++<2000){ if(S.ci[d]){ cur++; miss=0; if(cur>best) best=cur; } else { miss++; if(miss>=2) cur=0; } d=addD(d,1); } return Math.max(best,streak()); }
 
 /* ---------- Tổng quan tuần: xem các tuần trước + Shin nhận xét ---------- */
@@ -3197,16 +3479,17 @@ function vDash(){
   var webs=kp.filter(function(id){ return vitality(id)==='web'; }).length;
   var canBack = ws>S.created && addD(ws,-1)>=wkStart(S.created);
   var h='<div class="wnav"><button class="arr2" data-act="dw" data-v="1"'+(canBack?'':' disabled')+' aria-label="Tuần trước">'+ic('back')+'</button><div><b>'+(isNow?'Tuần này':DW===1?'Tuần trước':'Tuần '+dm(ws))+'</b><small>'+dm(ws)+' – '+dm(we)+'</small></div><button class="arr2 r" data-act="dw" data-v="-1"'+(isNow?' disabled':'')+' aria-label="Tuần sau">'+ic('back')+'</button></div>';
-  if(isNow) h+=shinReview();
   h+='<div class="kp3"><button data-act="streak"><b>'+streak()+'</b><span>Chuỗi ngày</span></button><button data-act="streak"><b>'+ciw+'<small>/7</small></b><span>Ngày check-in</span></button><button data-act="keeps"><b class="ok">'+kp.length+'</b><span>Đang duy trì</span>'+(webs?'<em>'+webIcon()+webs+' mạng nhện</em>':'')+'</button></div>';
   var list=isNow?handList():S.order.filter(function(id){ if(!S.habits[id]) return false; for(var i=0;i<7;i++){ if(mark(addD(ws,i),id)) return true; } return false; });
   if(!list.length) h+='<p class="muted small center" style="margin-top:20px">'+(isNow?'Chưa có thẻ nào trên tay.':'Tuần này chưa có ghi chép.')+'</p>';
-  h+=list.map(function(id){ var u=H(id), n=daysAt(id), need=LV_NEED[u.lv], wc=0;
-    for(var i=0;i<7;i++){ var m=mark(addD(ws,i),id); if(m==='y'||m==='p') wc++; }
-    var right = !isNow ? '<span class="dr__n">'+wc+'/7</span>' : ready(id)?'<span class="ready">Lên cấp</span>':'<span class="dr__n">'+(u.master?'Thành nếp':'còn '+Math.max(0,need-n)+' ngày')+'</span>';
-    return '<button class="drow" data-act="card" data-v="'+id+'">'+emblem(id,40)+'<span class="dr__b"><span class="dr__1"><b>'+esc(sname(id))+'</b>'+stars(u.lv,10)+right+'</span>'+
-      '<span class="dr__2"><span class="wbar"><i style="width:'+Math.round(wc/7*100)+'%"></i></span><span>'+wc+'/7 · đều '+consistency(id)+'%</span></span></span></button>'; }).join('');
-  h+='<div class="row" style="margin-top:14px;justify-content:center"><button class="btn btn--soft btn--sm" data-act="week" data-v="'+ws+'">'+ic('img')+'Thẻ tuần</button><button class="btn btn--soft btn--sm" data-act="coll">'+ic('deck')+'Thư viện thẻ</button></div>';
+  h+=list.map(function(id){ var u=H(id), n=daysAt(id), need=needFor(id,u.lv), wc=weekCount(id,ws), dip=isDip(id), tg=dip?(HMAP[id].wk||0):7, un=unitOf(id);
+    var right = !isNow ? '<span class="dr__n">'+wc+(dip?' lần':'/7')+'</span>' : ready(id)?'<span class="ready">Lên cấp</span>':'<span class="dr__n">'+(u.master?'Thành nếp':'còn '+Math.max(0,need-n)+' '+un)+'</span>';
+    var l2 = dip ? wc+(tg?'/'+tg:'')+' lần tuần này' : wc+'/7';
+    var pw = dip ? Math.round(Math.min(1,wc/(tg||2))*100) : Math.round(wc/7*100);
+    return '<button class="drow" data-act="card" data-v="'+id+'">'+emblem(id,40)+'<span class="dr__b"><span class="dr__1"><b>'+esc(sname(id))+'</b>'+right+'</span>'+
+      '<span class="dr__2"><span class="wbar"><i style="width:'+pw+'%"></i></span><span>'+l2+'</span></span></span></button>'; }).join('');
+
+  h+='<div class="row" style="margin-top:14px;justify-content:center"><button class="btn btn--soft btn--sm" data-act="week" data-v="'+ws+'">'+ic('img')+'Thẻ tuần</button></div>';
   return h;
 }
 function shinReview(){
@@ -3246,39 +3529,59 @@ function openKeeps(){
   var webs=kp.filter(function(id){ return vitality(id)==='web'; });
   if(webs.length) h+=say('shin','worry','<b>'+esc(sname(webs[0]))+'</b> đã 7 ngày chưa làm, sắp đóng mạng nhện rồi. Rèn lại vài ngày cho nó sống lại nhé?');
   h+=kp.map(function(id){ var dots=''; for(var i=6;i>=0;i--){ var d=addD(t,-i), m=mark(d,id); dots+='<i class="'+(m==='y'?'y':m==='p'?'p':'')+'" title="'+dm(d)+'"></i>'; }
-    return '<div class="krow'+(vitality(id)==='web'?' web':'')+'">'+emblem(id,40)+'<div class="kr__b"><b>'+esc(sname(id))+'</b> '+vitTag(id)+'<div class="kdots">'+dots+'</div><small>'+last7(id)+'/7 ngày gần đây</small></div><button class="btn btn--ghost btn--sm" data-act="slotit" data-v="'+id+'">Rèn lại</button></div>'; }).join('');
+    return '<div class="krow'+(vitality(id)==='web'?' web':'')+'">'+emblem(id,40)+'<div class="kr__b"><b>'+esc(sname(id))+'</b> '+vitTag(id)+'<div class="kdots">'+dots+'</div><small>'+(isDip(id)?last14(id)+' lần trong 14 ngày gần đây':last7(id)+'/7 ngày gần đây')+'</small></div><button class="btn btn--ghost btn--sm" data-act="slotit" data-v="'+id+'">Rèn lại</button></div>'; }).join('');
   h+='<p class="note" style="margin-top:10px">Mỗi tối, check-in sẽ hỏi nhanh bạn giữ được thói quen duy trì nào.</p>';
   openOv(h);
 }
 /* ---------- Thư viện thẻ ---------- */
 function cardStatus(id){ var u=H(id); if(!u) return S.seen[id]?['','']:['Mới','new']; if(u.status==='keep') return ['Duy trì','keep']; if(S.slots.indexOf(id)>=0) return u.master?['Thành nếp','gold']:['Đang rèn','on']; return ['Đã cất','off']; }
 function openStore(pick){
+  STF='all'; STOPEN=null;
   PICK = pick ? (S.slots.indexOf(null)) : null;
   if(pick && PICK<0){ toast('Đã đủ 5 thẻ trên tay.'); return; }
   openOv(''); drawStore();
 }
+var STF='all', STOPEN=null;
+function libStatus(id){ var u=H(id); if(!u) return ['Chưa rèn','todo']; if(u.status==='keep') return ['Đang duy trì','keep']; if(S.slots.indexOf(id)>=0) return u.status==='pause'?['Tạm dừng','off']:['Đang rèn','on']; return ['Chưa rèn','todo']; }
+function libKind(id){ var st=libStatus(id)[1]; return st==='keep'?'keep':st==='todo'?'todo':'on'; }
+function lessonList(){
+  return '<div class="slist">'+LESSONS.map(function(l){ var ok=!!S.les[l.id];
+    return '<button class="srow" data-act="lsOpen" data-v="'+l.id+'"><span class="emb g'+l.g+'" style="width:40px;height:40px">'+glyph('cu_'+l.icon,GCOL[l.g])+'</span><span class="sr__b"><b>'+esc(l.t)+'</b><small>Bài '+l.n+' · 4 thẻ ngắn</small></span>'+(ok?'<span class="lchip on">Đã học</span>':'')+ic('arrow')+'</button>'; }).join('')+'</div>';
+}
 function drawStore(){
-  var v=S.storeView||'list', n=S.slots.filter(Boolean).length;
+  var sh=OV&&OV.querySelector('.sheet'), keepTop=sh?sh.scrollTop:0;
+  var v=S.storeView==='lessons'?'lessons':'list', n=S.slots.filter(Boolean).length, done=LESSONS.filter(function(l){ return S.les[l.id]; }).length;
   var h='<div class="sh__h"><b style="font-size:17px">'+(PICK!=null?'Chọn thẻ để rèn':'Thư viện thẻ')+'</b><button class="x" data-act="close" aria-label="Đóng">'+ic('x')+'</button></div>'+
-    '<div class="tabs" role="tablist"><button class="'+(v==='list'?'on':'')+'" data-act="sview" data-v="list">Danh sách</button><button class="'+(v==='card'?'on':'')+'" data-act="sview" data-v="card">Thẻ đầy đủ</button></div>';
+    '<div class="tabs" role="tablist"><button class="'+(v==='list'?'on':'')+'" data-act="sview" data-v="list">Danh sách</button><button class="'+(v==='lessons'?'on':'')+'" data-act="sview" data-v="lessons">Bài học · '+done+'/5</button></div>';
+  if(v==='lessons'){ h+='<p class="muted small" style="margin:10px 2px 6px">5 bài ngắn giúp bạn chọn việc vừa sức và giữ đều.</p>'+lessonList(); sheetSet(h); return; }
   if(PICK!=null && n>=3) h+=say('shin','think','Bạn đang có <b>'+n+'</b> thẻ. Ít thẻ mà đều tay thì thành nếp nhanh hơn đó.');
-  h+=lessonStrip();
-  h+=customBlock(v);
-  var owned={}; S.order.forEach(function(id){ if(S.habits[id]) owned[HMAP[id].g]=(owned[HMAP[id].g]||0)+1; });
-  var sug=HABITS.filter(function(x){ return !H(x.id) && x.steps; }).sort(function(a,b){ return (owned[a.g]||0)-(owned[b.g]||0); }).slice(0,4);
+  h+=customBlock('list');
+  /* gợi ý: tối đa 3, mỗi nhóm 1 thẻ, ưu tiên 3 nhóm bạn có ít thẻ nhất */
+  var owned={1:0,2:0,3:0,4:0}; S.order.forEach(function(id){ if(S.habits[id] && owned[HMAP[id].g]!==undefined) owned[HMAP[id].g]++; });
+  var gs=GROUPS.map(function(g){ return g.g; }).sort(function(a,b){ return (owned[a]-owned[b])||(a-b); }), sug=[];
+  gs.forEach(function(g){ if(sug.length>=3) return; var x=HABITS.filter(function(k){ return k.g===g && !H(k.id) && k.steps; })[0]; if(x) sug.push(x); });
+  sug.sort(function(a,b){ return a.g-b.g; });
   if(sug.length) h+='<div class="sec" style="margin-top:14px"><h2>Gợi ý cho bạn</h2></div><div class="strip">'+sug.map(function(x){ return miniCard(x.id,true); }).join('')+'</div>';
+  var FL=[['all','Tất cả'],['on','Đang rèn'],['keep','Đang duy trì'],['todo','Chưa rèn']];
+  h+='<div class="fchips" role="tablist" aria-label="Lọc thẻ">'+FL.map(function(f){ return '<button class="'+(STF===f[0]?'on':'')+'" role="tab" aria-selected="'+(STF===f[0])+'" data-act="sflt" data-v="'+f[0]+'">'+f[1]+'</button>'; }).join('')+'</div>';
+  var shown=0;
   GROUPS.forEach(function(g){
-    var list=HABITS.filter(function(x){ return x.g===g.g; }), got=list.filter(function(x){ return H(x.id); }).length;
-    h+='<div class="sgrp"><div class="deck__h">'+gico(g.g,'sm')+'<h2>'+esc(g.t)+'</h2><span class="sg__n">'+got+'/'+list.length+'</span></div><div class="sg__bar"><i style="width:'+Math.round(got/list.length*100)+'%"></i></div>';
-    if(v==='card') h+='<div class="strip strip--big">'+list.map(function(x){ return '<div class="bigc" role="button" tabindex="0" data-act="mcard" data-v="'+x.id+'">'+cardFront(x.id,{})+'</div>'; }).join('')+'</div>';
-    else h+='<div class="slist">'+list.map(function(x){ var st=cardStatus(x.id);
-      return '<button class="srow" data-act="mcard" data-v="'+x.id+'">'+emblem(x.id,40)+'<span class="sr__b"><b>'+esc(x.t)+'</b><small>'+esc(x.who[0].charAt(0).toUpperCase()+x.who[0].slice(1))+'</small></span>'+(st[0]?'<span class="stag '+st[1]+'">'+st[0]+'</span>':'')+ic('arrow')+'</button>'; }).join('')+'</div>';
+    var all=HABITS.filter(function(x){ return x.g===g.g; }), got=all.filter(function(x){ return H(x.id); }).length;
+    var list=STF==='all'?all:all.filter(function(x){ return libKind(x.id)===STF; });
+    if(!list.length) return; shown++;
+    var open=STF==='all'?(STOPEN===g.g):true, col=GCOL[g.g];
+    h+='<div class="agrp'+(open?' open':'')+'"><button class="agh'+(open?' open':'')+'" data-act="sgrp" data-v="'+g.g+'" aria-expanded="'+open+'">'+gico(g.g,'sm')+'<span class="ag__t"><b>'+esc(g.t)+'</b><small>'+(STF==='all'?got+'/'+all.length+' thẻ đã rèn':list.length+' thẻ')+'</small></span>'+(STF==='all'?ic('chev'):'')+'</button><div class="sg__bar"><i style="width:'+Math.round(got/all.length*100)+'%;background:'+col+'"></i></div>';
+    if(open) h+='<div class="slist">'+list.map(function(x){ var st=libStatus(x.id);
+      return '<button class="srow" data-act="mcard" data-v="'+x.id+'">'+emblem(x.id,40)+'<span class="sr__b"><b>'+esc(x.t)+'</b></span><span class="lchip '+st[1]+'">'+st[0]+'</span>'+ic('arrow')+'</button>'; }).join('')+'</div>';
     h+='</div>';
   });
-  sheetSet(h); if(v==='card') fitText(OV);
+  if(!shown) h+='<p class="muted small center" style="margin:18px 0">Chưa có thẻ nào ở nhóm này.</p>';
+  sheetSet(h);
+  if(sh){ var op=sh.querySelector('.agrp.open'); if(STSCROLL && op){ STSCROLL=false; sh.scrollTop=Math.max(0,op.offsetTop-52); } else sh.scrollTop=keepTop; }
 }
+var STSCROLL=false;
 function miniCard(id,big){ var x=HMAP[id], u=H(id), st=cardStatus(id);
-  return '<button class="mc g'+x.g+(u?' lv'+u.lv:'')+(big?' mc--big':'')+'" data-act="mcard" data-v="'+id+'" aria-label="'+esc(x.t)+'">'+(st[0]?'<i class="stag '+st[1]+'">'+st[0]+'</i>':'')+hico(id)+'<b>'+esc(x.s)+'</b>'+stars(u?u.lv:0,12)+'</button>'; }
+  return '<button class="mc g'+x.g+(u?' lv'+u.lv:'')+(big?' mc--big':'')+'" data-act="mcard" data-v="'+id+'" aria-label="'+esc(x.t)+'">'+(st[0]&&st[1]!=='new'?'<i class="stag '+st[1]+'">'+st[0]+'</i>':'')+hico(id)+'<b>'+esc(x.s)+'</b>'+stars(u?u.lv:0,12)+'</button>'; }
 var CI=null, RETCI=null;
 function openCI(date){
   if(!trackIds().length){ toast('Thêm ít nhất 1 thẻ trước nhé.'); go('today'); return; }
@@ -3294,8 +3597,15 @@ function ciState(){
   if(CI.i<n){ var id=CI.list[CI.i], a=CI.ans[id]; if(CI.skip&&CI.skip[id]&&!a) return {ok:true}; if(!a) return {ok:false,msg:'Chọn một ô'}; if(a==='n'&&!CI.why[id]) return {ok:false,msg:'Chọn lý do'}; }
   return {ok:true};
 }
-function moodFace(v,col){ var m={5:'M18 33q12 12 24 0',4:'M19 35q11 7 22 0',3:'M19 37h22',2:'M19 39q11-7 22 0',1:'M18 41q12-11 24 0'}[v];
-  return '<svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="'+col+'" opacity=".16"/><circle cx="22" cy="25" r="3" fill="'+col+'"/><circle cx="38" cy="25" r="3" fill="'+col+'"/><path d="'+m+'" stroke="'+col+'" stroke-width="4" fill="none" stroke-linecap="round"/></svg>'; }
+function moodFace(v,col){
+  var F={
+   5:'<path d="M15 27q4.5-7 9 0M36 27q4.5-7 9 0" stroke="'+col+'" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M17 34h26a13 13 0 0 1-26 0z" fill="'+col+'"/><circle cx="14" cy="35" r="3.2" fill="'+col+'" opacity=".3"/><circle cx="46" cy="35" r="3.2" fill="'+col+'" opacity=".3"/><path d="M50 6l1.7 4.3 4.3 1.7-4.3 1.7L50 18l-1.7-4.3L44 12l4.3-1.7z" fill="'+col+'"/>',
+   4:'<circle cx="22" cy="26" r="3" fill="'+col+'"/><circle cx="38" cy="26" r="3" fill="'+col+'"/><path d="M20 35q10 8 20 0" stroke="'+col+'" stroke-width="3.6" fill="none" stroke-linecap="round"/>',
+   3:'<circle cx="22" cy="26" r="3" fill="'+col+'"/><circle cx="38" cy="26" r="3" fill="'+col+'"/><path d="M21 38h18" stroke="'+col+'" stroke-width="3.6" fill="none" stroke-linecap="round"/>',
+   2:'<path d="M15 23l9-3.4M45 23l-9-3.4" stroke="'+col+'" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="22" cy="28" r="3" fill="'+col+'"/><circle cx="38" cy="28" r="3" fill="'+col+'"/><path d="M21 42q9-7 18 0" stroke="'+col+'" stroke-width="3.6" fill="none" stroke-linecap="round"/>',
+   1:'<path d="M16 27q4 4 8 0M36 27q4 4 8 0" stroke="'+col+'" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M43 31c-3.4 4.4-3.4 7.6 0 8.6 3.4-1 3.4-4.2 0-8.6z" fill="'+col+'" opacity=".55"/><path d="M20 45q3.6-5 7.5 0t7.5 0t7.5 0" stroke="'+col+'" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+  }[v];
+  return '<svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="'+col+'" opacity=".16"/>'+F+'</svg>'; }
 function drawMood(){
   var h='<div class="sh__h"><button class="x" data-act="close" aria-label="Đóng">'+ic('x')+'</button></div><div class="lc">'+
     '<div class="ey">'+(CI.date===dk()?'Check-in tối nay':'Check-in bù ngày '+dm(CI.date))+'</div><h2>Hôm nay bạn thấy thế nào?</h2><div class="moods">'+
@@ -3313,12 +3623,16 @@ function drawCI(){
     var id=CI.list[CI.i], a=CI.ans[id], x=HMAP[id];
     body='<div class="ey">'+when+' · '+(CI.i+1)+'/'+n+'</div>'+
       '<div class="mini-h">'+hico(id,'sm')+'<div><b>'+esc(hname(id))+'</b><small>Khi '+esc(H(id).anchor)+'</small></div></div>'+
-      '<h2 style="margin:14px 0 4px">'+(isToday?'Hôm nay':'Hôm đó')+' bạn làm được chưa?</h2><div class="big3">'+
-        '<button class="y'+(a==='y'?' on':'')+'" data-act="ciA" data-v="y">'+hanko('y')+'<span>Làm rồi</span></button>'+
-        '<button class="p'+(a==='p'?' on':'')+'" data-act="ciA" data-v="p">'+hanko('p')+'<span>Làm một phần</span></button>'+
-        '<button class="n'+(a==='n'?' on':'')+'" data-act="ciA" data-v="n"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#C9B98F" stroke-width="2.4" stroke-dasharray="5 5"/><path d="M22 30h16" stroke="#C9B98F" stroke-width="3" stroke-linecap="round"/></svg><span>Chưa làm<small>Nói thật cũng là rèn luyện</small></span></button>'+
-        (x.cond?'<button class="x'+(a==='x'?' on':'')+'" data-act="ciA" data-v="x">'+xDot()+'<span>Hôm nay không gặp dịp<small>Không có tình huống để làm</small></span></button>':'')+
+      '<h2 style="margin:14px 0 4px">'+(isToday?'Hôm nay':'Hôm đó')+(x.cond?' bạn có dịp làm không?':' bạn làm được chưa?')+'</h2><div class="big3">'+
+        '<button class="y'+(a==='y'?' on':'')+'" data-act="ciA" data-v="y">'+hanko('y')+'<span>'+(x.cond?'Có dịp, làm rồi':'Làm rồi')+'</span></button>'+
+        (x.cond?'':'<button class="p'+(a==='p'?' on':'')+'" data-act="ciA" data-v="p">'+hanko('p')+'<span>Làm một phần</span></button>')+
+        '<button class="n'+(a==='n'?' on':'')+'" data-act="ciA" data-v="n"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#C9B98F" stroke-width="2.4" stroke-dasharray="5 5"/><path d="M22 30h16" stroke="#C9B98F" stroke-width="3" stroke-linecap="round"/></svg><span>'+(x.cond?'Có dịp, chưa làm được':'Chưa làm')+'<small>Nói thật cũng là rèn luyện</small></span></button>'+
+        (x.cond?'<button class="nx'+(a==='x'?' on':'')+'" data-act="ciA" data-v="x">'+xDot()+'<span>Không gặp dịp<small>Không sao, không tính là bỏ lỡ</small></span></button>':'')+
       '</div>'+(!a?'<button class="linkb" data-act="ciSkip">Bỏ qua thẻ này ›</button>':'');
+    if(x.cond && x.mk){
+      if(a==='x' && xRun(id,addD(CI.date,-1))>=4) body+=say('shin','think','Mấy hôm nay chưa gặp dịp. Thử tạo dịp: '+esc(x.mk));
+      else if(!a && x.wk && diffD(wkStart(CI.date),CI.date)>=3 && weekCount(id,wkStart(CI.date))<x.wk) body+=say('shin','think','Tuần này chưa có lần nào. '+esc(x.mk));
+    }
     if(a==='p'||a==='y'){ var E2=x.ev||EV_GENERIC; body+='<div class="lbl" style="margin-top:6px">'+esc(E2.q)+'</div><div>'+E2.o.map(function(o){ return '<button class="chp" data-act="ciChip" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join('')+'</div><label class="lbl" for="ciN" style="margin-top:4px">Vài chữ về kết quả <span class="muted" style="font-weight:400">(không bắt buộc)</span></label><textarea class="inp" id="ciN" data-in="ciN" rows="2" style="min-height:58px" placeholder="Ví dụ: chào được 2 người, hơi ngại">'+esc(CI.notes[id]||'')+'</textarea>'; }
     if(a==='n'){
       var w=CI.why[id];
@@ -3369,14 +3683,18 @@ function ciSummary(){
   var n=0, cnt={}; CI.list.forEach(function(id){ if(CI.ans[id]==='n'){ n++; var r=CI.why[id]; REASONS.forEach(function(R){ if(R[0]===r&&R[2]) cnt[R[2]]=(cnt[R[2]]||0)+1; }); } });
   var top=null, mx=0; for(var k in cnt){ if(cnt[k]>mx){ mx=cnt[k]; top=k; } }
   var pv = CI.comeback ? PROV_COMEBACK : PROVS[(pd(CI.date).getDate())%PROVS.length];
-  var h='<div class="sum"><div style="width:120px;margin:0 auto">'+shin('cheer')+'</div>'+
+  var hr=new Date().getHours(), late=(CI.date===dk() && (hr>=23||hr<4)), stk=streak();
+  var sm=lowMood?'comfort':CI.comeback?'moved':late?'yawn':(stk>0&&stk%7===0)?'proud':'cheer';
+  var h='<div class="sum"><div style="width:120px;margin:0 auto">'+shin(sm)+'</div>'+
     '<div class="big">'+ic('fire').replace('<svg','<svg style="width:36px;height:36px;vertical-align:-4px;color:var(--fire)"')+' '+streak()+'</div><div class="muted small" style="font-weight:600">ngày check-in liên tiếp</div>'+
     '<div class="row" style="justify-content:center;gap:6px;margin:12px 0">'+CI.list.map(function(id){ var a=CI.ans[id]; return '<span style="width:44px;display:inline-block">'+(a==='y'?hanko('y',1):a==='p'?hanko('p',1):a==='x'?xDot():'<svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#C9B98F" stroke-width="2.4" stroke-dasharray="5 5"/></svg>')+'</span>'; }).join('')+'</div></div>';
   if(n && top) h+=say(top,'smug','<b>'+esc(VIRUS[top].n)+'</b>: “Hôm nay ta thắng '+n+' ván. Mai xem bạn gỡ thế nào!”','say--virus');
   else if(n) h+=say('shin','think','Ván nào chưa làm, mai mình làm bản nhỏ hơn nhé.');
   else h+=say('luoi','poof','<b>Hội Virus</b> xẹp lép rồi! Hôm nay bạn thắng trọn.','say--virus');
   h+='<div class="prov"><div style="flex:1"><div class="jp">'+esc(pv.j)+'</div><small>'+esc(pv.r)+'</small><div class="vi">'+esc(pv.v)+'</div></div><button class="spk" data-act="speak" data-v="'+esc(pv.j)+'" aria-label="Nghe đọc">'+ic('spk')+'</button></div>';
-  if(lowMood) h+=say('shin','worry','Ngày không vui ai cũng có. Nếu nhiều ngày liền như vậy, hãy nói chuyện với thầy cô hoặc một người bạn tin cậy nhé.');
+  if(!lowMood && late) h+=say('shin','yawn','Khuya rồi. Xong rồi thì đi ngủ nhé, mai mình rèn tiếp.');
+  if(!lowMood && !late && !CI.comeback && stk>0 && stk%7===0) h+=say('shin','proud','Đủ <b>'+stk+'</b> ngày liền. Từng ngày nhỏ cộng lại thành thế này đó.');
+  if(lowMood) h+=say('shin','comfort','Ngày không vui ai cũng có. Nếu nhiều ngày liền như vậy, hãy nói chuyện với thầy cô hoặc một người bạn tin cậy nhé.');
   if(CI.comeback) h+='<p class="small muted center">Lỡ một ngày, hôm nay quay lại ngay. Vậy là giỏi rồi.</p>';
   return h;
 }
@@ -3435,7 +3753,7 @@ var LESSONS = [
        ['shin','worry','Điều gì giúp chị không bỏ?'],
        ['s',2,'hi','Chị không cố học bù gấp đôi nữa. Hôm nào mệt thì chỉ làm 1 trang đề. Miễn là không để hai ngày liền trống. Rồi cũng đến ngày chị đỗ.'],
        ['shin','cheer','Ngã bảy lần, đứng dậy tám lần. Quan trọng là lần đứng dậy!']],
-  app:['Chuỗi ngày: lỡ 1 ngày chưa mất chuỗi, lỡ 2 ngày liền mới về 0.','Quên đóng dấu thì ghi bù được trong 3 ngày. Thói quen duy trì 7 ngày không làm sẽ thành “mạng nhện”.'],
+  app:['Chuỗi ngày: lỡ 1 ngày chưa mất chuỗi, lỡ 2 ngày liền mới về 0.','Quên đóng dấu thì ghi bù được trong 3 ngày. Thói quen duy trì 7 ngày không làm sẽ thành “mạng nhện”.','Thẻ “khi gặp dịp” (như Nhận góp ý) tính theo số lần: 3, 6, 12 lần. Chọn “Không gặp dịp” thì không bị tính là bỏ lỡ.'],
   todo:'Nếu hôm qua bạn lỡ, hôm nay làm phiên bản nhỏ nhất của thẻ đó.', go:['streak','Xem chuỗi ngày']},
  {id:'b5', n:5, t:'Mỗi con dấu là một lá phiếu', icon:'tim', g:5, kind:'vote',
   c1:'<div class="hw__k">Ý chính</div><p class="lsbig">Đừng chỉ đặt mục tiêu “làm gì”. Hãy chọn “mình muốn trở thành người như thế nào”.</p>'+
@@ -3471,14 +3789,15 @@ function lessonStrip(){
       return '<button class="lsn'+(ok?' done':'')+'" data-act="lsOpen" data-v="'+l.id+'"><span class="emb g'+l.g+'">'+glyph('cu_'+l.icon,GCOL[l.g])+'</span><small>BÀI '+l.n+(ok?' · ✓':'')+'</small><b>'+esc(l.t)+'</b></button>'; }).join('')+'</div></div>';
 }
 function openLesson(id){ LS={id:id, i:0, st:{}, w:(S.les[id]&&S.les[id].w)||''}; openOv(''); drawLesson(); }
+function shinMd(m,t){ return (m==='think' && /\?\s*$/.test(t))?'curious':m; }
 function talk(lines,v){
-  return lines.map(function(d){ if(d[0]==='shin') return say('shin',d[1],'<b>Shin</b>: '+esc(d[2]));
-    return say('senpai'+v,d[1],'<b>'+esc(SENPAI_FACES[v])+'</b>: '+esc(d[2]),'say--sp'); }).join('')+'<p class="note">Senpai là nhân vật hư cấu. Chuyện dựa trên chia sẻ của anh chị khóa trước.</p>';
+  return lines.map(function(d){ if(d[0]==='shin') return say('shin',shinMd(d[1],d[2]),'<b>Shin</b>: '+esc(d[2]));
+    return say('senpai'+v,d[1],'<b>'+esc(SENPAI_FACES[v])+'</b>: '+esc(d[2]),'say--sp say--r'); }).join('')+'<p class="note">Senpai là nhân vật hư cấu. Chuyện dựa trên chia sẻ của anh chị khóa trước.</p>';
 }
 function lsDialog(L){
-  return '<div class="hw__k">Shin hỏi, Senpai kể</div>'+L.dlg.map(function(d){
-    if(d[0]==='shin') return say('shin',d[1],'<b>Shin</b>: '+esc(d[2]));
-    return say('senpai'+d[1],d[2],'<b>'+esc(SENPAI_FACES[d[1]])+'</b>: '+esc(d[3]),'say--sp');
+  return '<div class="hw__k">SHIN PHỎNG VẤN SENPAI</div>'+L.dlg.map(function(d){
+    if(d[0]==='shin') return say('shin',shinMd(d[1],d[2]),'<b>Shin</b>: '+esc(d[2]));
+    return say('senpai'+d[1],d[2],'<b>'+esc(SENPAI_FACES[d[1]])+'</b>: '+esc(d[3]),'say--sp say--r');
   }).join('')+'<p class="note">Senpai là nhân vật hư cấu. Chuyện dựa trên chia sẻ của anh chị khóa trước.</p>';
 }
 function lsApp(L){
@@ -3712,10 +4031,13 @@ function calPrompt(fromStart){
 }
 
 /* ---------- Sao lưu ---------- */
+function bkDays(){ return diffD(S.lastBackup||S.created||dk(),dk()); }
+function bkDue(){ if(DEMO) return false; if(S.bkSnooze && dk()<S.bkSnooze) return false; return bkDays()>=7; }
 function backup(){
+  S.lastBackup=dk(); S.bkSnooze=''; save(true); renderTop(); 
   var b=new Blob([JSON.stringify(S)],{type:'application/json'}), a=document.createElement('a');
   a.href=URL.createObjectURL(b); a.download='Ban-sao-Kaizen-'+(noMark(S.name).replace(/\s+/g,'-')||'hoc-vien')+'-'+dk()+'.json'; document.body.appendChild(a); a.click();
-  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },800); toast('Đã lưu bản sao vào máy (thư mục Tải về).');
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },800); toast('Đã lưu bản sao vào máy (thư mục Tải về).'); refreshAll();
 }
 function restore(f){
   var r=new FileReader(); r.onload=function(){ try{ var d=JSON.parse(r.result); if(!d||!d.habits) throw 0; if(!confirm('Thay bài làm hiện tại bằng bản sao này?')) return; S=migrate(Object.assign(defState(),d)); regCustom(); save(true); toast('Đã khôi phục bài làm.'); render(); }catch(e){ toast('Tập tin này không phải bản sao của app.'); } };
@@ -3750,6 +4072,9 @@ document.addEventListener('click',function(e){
     case 'streak': openStreak(); break;
     case 'sm': SM=Math.max(0,SM+(+v)); drawStreak(); break;
     case 'sview': S.storeView=v; save(); drawStore(); break;
+    case 'sflt': STF=v; drawStore(); break;
+    case 'sgrp': if(STF==='all'){ STOPEN=(STOPEN===+v)?null:+v; STSCROLL=!!STOPEN; drawStore(); } break;
+    case 'bkLater': S.bkSnooze=addD(dk(),2); save(true); renderTop(); refreshAll(); toast('Mình nhắc lại sau 2 ngày nhé.'); break;
     case 'jrow': (function(){ var p=v.split('|'), id=p[0], d=p[1], m=mark(d,id); if((d===dk()||canBf(d,id)) && (m==='y'||m==='p') && H(id) && H(id).status!=='keep'){ openNote(id,d); } else { closeOv(true); openCard(id); } })(); break;
     case 'hwNext': HW.i=Math.min(HW.cards.length-1,HW.i+1); drawHow(); break;
     case 'hwPrev': HW.i=Math.max(0,HW.i-1); drawHow(); break;
@@ -3779,7 +4104,7 @@ document.addEventListener('click',function(e){
     case 'unslot': (function(){ var i=S.slots.indexOf(v); if(i>=0) S.slots[i]=null; H(v).status='pause'; save(true); closeOv(true); render(); toast('Đã cất thẻ vào Thư viện. Tiến độ vẫn giữ.'); })(); break;
     case 'vday': VDAY = v===dk()?null:v; SBACK=false; render(); break;
     case 'note': var np=v.split('|'); openNote(np[0],np[1]); break;
-    case 'ntChip': (function(){ var i=$('#ntIn'); var cur=i.value.trim(); i.value = cur ? cur+', '+v.toLowerCase() : v; NT.text=i.value; ntRefresh(); i.focus(); })(); break;
+    case 'ntChip': (function(){ var i=$('#ntIn'); var cur=i.value.trim(); i.value = cur ? cur+', '+v.toLowerCase() : v; NT.text=i.value; ntRefresh(); })(); break;
     case 'ntSave': if(NT) commitStamp(); break;
     case 'flipc': if(e.target.closest('.hold,summary,details,.spk,.spk2,button')) return; if(!S.gFlip){ S.gFlip=1; save(); } CARD.back=!CARD.back; el.classList.toggle('flipped',CARD.back); break;
     case 'how': openHow(v); break;
@@ -3820,12 +4145,13 @@ document.addEventListener('click',function(e){
     case 'tPin': if($('#tPin').value.trim()===T_PIN){ TMODE=true; refreshAll(); setTimeout(function(){ var i=$('#tName'); if(i) i.focus(); },60); } else toast('PIN chưa đúng.'); break;
     case 'cuNew': PICK=null; closeOv(true); openCustom(); break;
     case 'cuIcon': ST.icon=v; cuRefresh(); break;
+    case 'cuRhy': ST.rhy=v; drawStart(); break;
     case 'cuCol': ST.col=+v; cuRefresh(); break;
     case 'cuDel': cuDelete(v); break;
     case 'cuTier': (function(){ var val=($('#cuT').value||'').trim(); if(val.length<2){ toast('Viết việc mới từ 2 chữ, hoặc chọn Giữ việc cũ.'); return; } H(v).act=val; save(true); closeOv(true); openCard(v); toast('Đã lưu việc mới.'); })(); break;
     case 'gtoggle': GOPEN=!gOpen(); gdRefresh(); break;
     case 'guideOff': S.guideOff=true; save(); gdRefresh(); toast('Đã ẩn. Mở lại trong Sổ tay › Làm quen.',4500); break;
-    case 'guideOpen': S.guideOff=false; GOPEN=true; save(true); closeOv(); PG=0; render(); window.scrollTo(0,0); break;
+    case 'guideOpen': S.guideOff=false; S.guideDone=0; GDSHOW=true; GOPEN=true; save(true); closeOv(); PG=0; render(); window.scrollTo(0,0); break;
     case 'homeg': homeGuide(); break;
     case 'gHome': S.gHome=1; save(true); closeOv(); render(); toast('Tuyệt! Từ nay mở bằng biểu tượng Shin nhé.'); break;
     case 'flipHome': flipHome(); break;
@@ -3852,7 +4178,7 @@ document.addEventListener('click',function(e){
     case 'backup': backup(); break;
     case 'wipe': if(confirm('Xóa toàn bộ bài làm trên máy này? Việc này không hoàn tác được.')){ SAVE_BLOCK=true; try{ localStorage.removeItem(KEY); }catch(er){} location.hash=''; location.reload(); } break;
     case 'demoExit': exitDemo(); break;
-    case 'cast': (function(){ var p=v.split('|'), arr=CAST[p[0]], i=(+p[1]+1)%arr.length; el.setAttribute('data-v',p[0]+'|'+i); el.querySelector('svg').outerHTML= p[0]==='virus' ? virus(arr[i],'smug') : av(p[0],arr[i]); if(p[0]==='virus') el.querySelector('b').textContent=VIRUS[arr[i]].n; })(); break;
+    case 'cast': (function(){ var p=v.split('|'), arr=CAST[p[0]], i=(+p[1]+1)%arr.length; el.setAttribute('data-v',p[0]+'|'+i); el.querySelector('svg').outerHTML= p[0]==='virus' ? virus(arr[i],'smug') : p[0]==='senpai' ? senpai('smile',+arr[i]) : av(p[0],arr[i]); if(p[0]==='virus') el.querySelector('b').textContent=VIRUS[arr[i]].n; })(); break;
   }
 });
 document.addEventListener('input',function(e){

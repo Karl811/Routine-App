@@ -2,7 +2,7 @@
    - Trang app: lấy bản mới trên mạng trước, mất mạng thì dùng bản đã lưu.
    - Icon, manifest, phông chữ: dùng bản đã lưu, có mạng thì cập nhật ngầm.
    Mỗi lần ra bản mới, đổi số phiên bản ở dòng dưới. */
-var CACHE = 'shin-routine-TQ18';
+var CACHE = 'shin-routine-TQ24';
 var CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', function (e) {
