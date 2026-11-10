@@ -1,5 +1,5 @@
-/* Shin routine · TQ34 · cache riêng theo địa chỉ cài app */
-const VERSION='TQ34';
+/* Shin routine · TQ36 · cache riêng theo địa chỉ cài app */
+const VERSION='TQ36';
 const SCOPE=self.registration.scope;
 const PREFIX='shin-routine:'+encodeURIComponent(SCOPE)+':';
 const CACHE=PREFIX+VERSION;
