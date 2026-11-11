@@ -1,9 +1,9 @@
-/* Shin routine · TQ36 · cache riêng theo địa chỉ cài app */
-const VERSION='TQ36';
+/* Shin routine · TQ37 · cache riêng theo địa chỉ cài app */
+const VERSION='TQ37';
 const SCOPE=self.registration.scope;
 const PREFIX='shin-routine:'+encodeURIComponent(SCOPE)+':';
 const CACHE=PREFIX+VERSION;
-const CORE=['index.html','manifest.webmanifest','icon-192.png','icon-512.png'].map(p=>new URL(p,SCOPE).href);
+const CORE=['index.html','letters.js','manifest.webmanifest','icon-192.png','icon-512.png'].map(p=>new URL(p,SCOPE).href);
 self.addEventListener('install',event=>{event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(CORE);if(!self.registration.active)await self.skipWaiting();})());});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim();})());});
 self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING'){event.waitUntil(self.skipWaiting());return;}if(event.data?.type==='GET_STATUS'&&event.ports?.[0])event.waitUntil((async()=>{const cache=await caches.open(CACHE);const entries=await Promise.all(CORE.map(u=>cache.match(u)));event.ports[0].postMessage({version:VERSION,scope:SCOPE,coreReady:entries.every(Boolean)});})());});

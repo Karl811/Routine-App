@@ -822,10 +822,10 @@ body.demo.pg0 .pview{min-height:calc(100dvh - var(--hd8) - var(--bar8) - 40px)}
 .wbar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#8DB6F2,#1D5FD1)}
 /* Nhật ký: chọn ngày trong trang */
 .jdays{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:0 0 12px}
-.jd{display:flex;flex-direction:column;align-items:center;gap:0;border:1.5px solid #E2D8C4;background:#fff;border-radius:14px;padding:4px 0 6px;font:inherit;font-size:15px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.jd{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;background:none;border-radius:0;padding:4px 0 7px;font:inherit;font-size:15px;line-height:1.15;font-weight:600;color:var(--ink-2);cursor:pointer}
 .jd small{font-size:10.5px;font-weight:500;color:var(--muted)}
-.jd.ok{background:#F5EEE2;border-color:#D9C7A6}
-.jd.on{background:var(--ink);border-color:var(--ink);color:#fff}.jd.on small{color:rgba(255,255,255,.75)}
+.jd.on,.jd.on small{color:var(--c-d)}
+.jd.on::after{content:"";position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:17px;height:2px;border-radius:2px;background:var(--c-d)}
 .jd.fu{opacity:.4;cursor:default}
 .jbf{display:inline-flex;align-items:center;gap:4px;border:1.5px dashed #C9AE84;background:#FFFBF2;color:#8A6D47;border-radius:999px;padding:3px 10px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
 .jbf svg{width:13px;height:13px}
@@ -1109,7 +1109,7 @@ body.home::after{background:linear-gradient(rgba(244,239,228,0),#F4EFE4 72%)}
 .ckb{height:64px;border:0;border-radius:999px;padding:0 16px 0 13px;color:#fff;background:linear-gradient(160deg,#3A86E8,#1D5FD1);box-shadow:0 10px 24px -12px rgba(29,95,209,.7),inset 0 1px 0 rgba(255,255,255,.35);backdrop-filter:none;-webkit-backdrop-filter:none}
 .ckb.soon{background:linear-gradient(160deg,#3A86E8,#1D5FD1)}
 .ckb.soon::after{display:none}
-.ckb:not(.done)::before{content:"";position:absolute;inset:0;border-radius:inherit;animation:ckPulse 2.6s ease-out infinite;pointer-events:none}
+.ckb.soon:not(.done)::before{content:"";position:absolute;inset:0;border-radius:inherit;animation:ckPulse 2.6s ease-out infinite;pointer-events:none}
 @keyframes ckPulse{0%{box-shadow:0 0 0 0 rgba(42,116,219,.5)}70%{box-shadow:0 0 0 11px rgba(42,116,219,0)}100%{box-shadow:0 0 0 0 rgba(42,116,219,0)}}
 .ckb.done{background:rgba(255,253,247,.88);color:#9A3A2F;box-shadow:0 10px 28px -16px rgba(30,34,48,.45),0 0 0 1px rgba(220,214,200,.7)}
 .hold.tap{touch-action:manipulation}
@@ -1534,7 +1534,7 @@ body.pg0 .pview,body.demo.pg0 .pview{padding:6px 18px 0;max-width:460px}
 .home-view-switch{padding:2px;border-radius:13px;gap:0}.home-view-switch button{width:42px;height:40px;min-height:40px;padding:0;display:grid;place-items:center;border-radius:11px}.home-view-switch svg{width:20px;height:20px}
 .today-toolbar33 .today-add{min-width:36px;padding:0;min-height:44px}.today-add svg{width:19px;height:19px}
 .today-empty-shin33{width:110px;margin:4px auto 18px}.today-empty-shin33 svg{width:100%}.today-empty .btn{margin-top:20px}
-.home-cards .stagewrap{padding-top:5px;padding-bottom:3px}
+.home-cards .stagewrap{padding-top:calc(5px + var(--today-card-drop,5px));padding-bottom:3px}
 .home-cards .ct{padding:11px 16px 0}.home-cards .ct__top{min-height:26px}
 .home-cards .ct__mid{margin-top:4px}.home-cards .emb{width:64px;height:64px}
 .home-cards .ct__t{font-size:19px;margin:10px 0 5px}.home-cards .foil{padding:2px 9px}
@@ -1545,7 +1545,7 @@ body.pg0 .pview,body.demo.pg0 .pview{padding:6px 18px 0;max-width:460px}
 .home-cards .ct__own b{font-size:15px}.home-cards .ct__own b+small{font-size:12.5px}
 .home-cards .tb__art{flex:0 0 auto;height:118px;padding-top:20px}.home-cards .tb__art svg{height:90px;max-height:90px;margin:0}
 .home-cards .tb__body{padding:12px 15px 14px;gap:8px}.home-cards .pv{padding-bottom:8px}.home-cards .pv .jp{font-size:18px}
-.home-cards .spk2{margin-top:auto}.home-cards .spk2 .sp__t>small{display:none}
+.home-cards .spk2{margin-top:auto}.home-cards .spk2 .sp__t>small{display:block;margin:0 0 2px}
 .home-cards #sdots{margin:3px 0 0;gap:12px;min-height:44px}.home-cards #sdots .flipb{color:var(--c-d)}
 .compact-habit33{display:flex;align-items:center;padding:8px 10px;gap:8px;overflow:visible}
 .compact-habit33 .today-open{flex:1;min-width:0;align-items:center;gap:10px;padding:4px 0;min-height:50px}
@@ -1578,7 +1578,7 @@ body.pg0 .pview,body.demo.pg0 .pview{padding:6px 18px 0;max-width:460px}
 @keyframes tagBreeze33{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2.5deg)}}
 .journal-toggle33{width:44px;min-width:44px;height:44px;margin-right:auto;margin-left:8px}
 .journal-heading31{justify-content:flex-start;gap:0;margin-bottom:10px}.journal-week-nav33 .arr2{min-width:44px;min-height:44px}
-.jdays{gap:3px;margin-bottom:10px}.jd{min-height:57px;padding:5px 0;font-size:16px}.jd small{font-size:12px}.jd.on{background:var(--c-d);border-color:var(--c-d)}
+.jdays{gap:3px;margin-bottom:10px}.jd{min-height:44px;font-size:16px}.jd small{font-size:12px;line-height:1.15}
 .journal-date-heading31{font-size:14px;margin:12px 2px 9px}.journal-entry31 .jr__h b{font-size:15px}.journal-entry31 .jc{font-size:10px}.journal-entry-note31{font-size:14px;line-height:1.55;margin-top:5px}
 .journal-entry31{padding-top:11px;padding-bottom:11px}.journal-memo31{padding:11px 14px}.journal-memo31>div>b{font-size:15px;font-weight:600}.journal-memo31>p{font-size:15px;line-height:1.6}.journal-results31{font-size:13px;margin-bottom:8px}
 .habit-sheet33{padding-top:12px}.habit-heading33{margin-bottom:10px!important;min-height:38px}.habit-heading33>b{font-size:18px;font-weight:600}
@@ -1733,6 +1733,33 @@ body.pg0.cards-view34 .today-toolbar33{margin-bottom:4px}
 
 /* TQ36 · approved fonts: main tabs and reading text only */
 #pageTitle35,.abar .tabs3 button,.abar .ckb{font-family:"Nunito Sans",system-ui,sans-serif}
+/* TQ36.1 · approved finishing adjustments */
+.howpg .how-step-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 5px;border:0;background:none;box-shadow:none;font:inherit;font-size:14px;font-weight:600;color:var(--c-d);cursor:pointer}
+.howpg .how-step-link svg{width:17px;height:17px}
+.howpg .how-step-nav{padding:0;background:none;border:0;border-radius:0;box-shadow:none}
+.ckb.due{background:var(--y);color:#3B2A00;box-shadow:0 6px 16px -12px rgba(201,138,11,.55)}
+/* TQ36.2 · Today's single-column content replaces the retired desktop sidebar. */
+@media(min-width:1100px){body.pg0 .pview,body.demo.pg0 .pview{display:block}}
+/* TQ37 · personal stamps and letters */
+.postage37{--stamp-paper:#EEF0DC;--stamp-ink:#496D54;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:132px;min-height:158px;padding:10px 8px;background:var(--stamp-paper);border:4px dotted #B8A46B;box-shadow:inset 0 0 0 3px #FFFDF7;color:var(--stamp-ink);text-align:center;flex:none}
+.postage37 small{font-size:9px;letter-spacing:.07em}.postage37 b{font-size:13px;font-weight:600;line-height:1.3}.postage37 em{font-size:10.5px;font-style:normal;line-height:1.3}.postage37>svg{display:block;width:90px;height:76px;flex:none}
+.postage37.stamp-3{--stamp-paper:#F1E8D5}.postage37.stamp-6{--stamp-paper:#F8EFCD}.postage37.stamp-11{--stamp-paper:#E3EDDE}
+.postage37.postage-small37{width:56px;min-height:68px;padding:4px;border-width:2px;gap:0}.postage-small37>svg{width:43px;height:36px}
+.postage37.postage-small37 small,.postage37.postage-small37 em,.postage37.postage-small37 b{display:none}
+.letter-sheet37{max-width:560px!important;background:#EEF3EC}.letter-sheet37 .sh__h{background:transparent}.letter-content37{max-width:410px;margin:0 auto}.letter-content37 h2{font-size:23px;line-height:1.4}.letter-gift37{text-align:center;padding:10px 0 2px}.letter-gift37>.postage37{margin:2px auto 22px;transform:rotate(-4deg)}.letter-gift37>p{font-size:14px;color:var(--ink-2);line-height:1.7;margin:10px 0}.letter-gift37>.letter-invite37{color:var(--ink);margin:20px auto 8px;max-width:320px}
+.stamp-award37{display:flex;align-items:center;gap:12px;margin:16px 0;padding:12px 14px;text-align:left;background:#F8F5E9;border-radius:16px}.stamp-award37>span{flex:1;min-width:0}.stamp-award37 b{display:block;font-size:13px;font-weight:600}.stamp-award37 small{display:block;color:var(--ink-2);font-size:12px;line-height:1.5;margin-top:4px}.stamp-award37+.btn{margin-top:0}
+.letter-stamp-heading37{display:flex;align-items:center;gap:13px;margin:8px 0 22px}.letter-stamp-heading37>div:last-child{min-width:0}.letter-stamp-heading37 b{font-size:16px;font-weight:600}.letter-stamp-heading37 small{font-size:12px;color:var(--ink-2);display:block;margin-top:3px}.letter-hint37{font-size:13px;color:var(--ink-2);margin:4px 0 12px;line-height:1.6}.letter-compose37 textarea{min-height:184px;resize:vertical;line-height:1.7;background:#FFFDF7}.letter-error37{color:#A32D27;font-size:13px;line-height:1.5;margin:8px 0}.letter-error37[hidden]{display:none}
+.letter-footer37{margin-top:18px;text-align:center}.letter-footer37>.btn{width:100%;min-height:46px}.letter-footer37>.week-link{margin:6px auto 0;min-height:44px;padding:9px 6px;display:block}
+.stamp-pending37{display:flex;align-items:center;gap:12px;width:100%;min-height:68px;border:0;border-radius:15px;background:rgba(255,253,247,.85);padding:10px 12px;color:var(--ink);font:inherit;text-align:left;margin:16px 0 2px;cursor:pointer}.stamp-pending37>span{flex:1;min-width:0}.stamp-pending37 b{display:block;font-size:13px;font-weight:600}.stamp-pending37 small{display:block;font-size:12px;line-height:1.5;color:var(--ink-2);margin-top:3px}.stamp-pending37>svg{width:17px;height:17px;flex:none;color:var(--c-d)}
+.stamp-choices37{display:grid;gap:10px}.stamp-choices37 .stamp-pending37{margin:0;background:#FFFDF7}.letter-list37{margin-top:14px;border-top:1px solid #D7DFD0;padding-top:8px;text-align:left}.letter-list37 summary{font-size:12px;color:var(--ink-2);min-height:44px;padding:12px 0;cursor:pointer}.letter-list37 button{display:flex;align-items:center;gap:9px;min-height:48px;padding:8px 0;width:100%;border:0;background:none;color:var(--ink);font:inherit;text-align:left;cursor:pointer}.letter-list37 button>svg{width:25px;height:19px;flex:none}.letter-list37 button>span{flex:1;font-size:13px}.letter-list37 time{display:block;font-size:11px;color:var(--ink-2);margin-top:2px}
+.letter-paper37{padding:20px 18px;background:#FFFDF7;border:1px solid #DFD9C6;border-radius:16px;margin-top:8px}.letter-read-head37{display:flex;align-items:center;gap:16px}.letter-read-head37 .postage37{width:112px;min-height:140px}.letter-read-head37 .postage37>svg{width:76px;height:63px}.letter-read-head37>div:last-child{min-width:0;font-size:13px;line-height:1.6;color:var(--ink-2)}.letter-read-head37 small{display:block;font-size:11px;letter-spacing:.06em;color:var(--muted)}.letter-meaning37{font-size:13px;line-height:1.7;color:var(--ink-2);margin:18px 0;padding-bottom:16px;border-bottom:1px solid #E7E1D2}.letter-body37{font-size:15px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.letter-date37{display:block;color:var(--muted);font-size:12px;margin-top:24px}
+.tree-letter37{animation:tagBreeze33 5s ease-in-out infinite;cursor:pointer}.tree-letter37:focus{outline:none}.tree-letter37:hover .letter-hit37,.tree-letter37:focus-visible .letter-hit37{fill:rgba(255,255,255,.35);stroke:#557B64;stroke-width:1.5}.tree-letter37 .letter-hit37{fill:transparent;stroke:transparent}.tree-panel34.revealing34 .tree-letter37{animation:tagBreeze33 5s ease-in-out infinite,treeTagAppear34 850ms ease-out both;animation-delay:0s,calc(1550ms + var(--tag-order34,0)*70ms)}.tree-letter37.letter-fresh37{animation:letterHang37 900ms var(--ease) both}
+.letter-fold37{position:relative;min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.letter-fold37>p{font-size:14px;color:var(--ink-2);margin-top:30px}.letter-fold-paper37{width:210px;max-width:100%;height:160px;background:#FFFDF7;border:1px solid #DDD8C8;border-radius:5px;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px;transform-origin:center bottom;animation:letterFold37 650ms ease-in forwards}.letter-fold-paper37>svg{width:48px;height:42px}.letter-fold-paper37>i{display:block;width:130px;height:2px;background:#E2DDCF}.letter-fold-envelope37{position:absolute;width:152px;height:102px;left:50%;top:122px;opacity:0;animation:letterSeal37 500ms 450ms ease-out forwards}.letter-fold-envelope37>svg{width:100%;height:100%}
+@keyframes letterFold37{0%{transform:scaleY(1);opacity:1}75%{transform:scaleY(.25);opacity:.8}100%{transform:scaleY(.04);opacity:0}}
+@keyframes letterSeal37{0%{opacity:0;transform:translate(-50%,14px) scale(.85)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes letterHang37{0%{opacity:0;transform:translateY(-16px) rotate(-8deg)}65%{opacity:1;transform:translateY(0) rotate(5deg)}100%{opacity:1;transform:translateY(0) rotate(0)}}
+@media(max-width:359px){.letter-paper37{padding:16px 14px}.letter-read-head37{gap:10px}.letter-read-head37 .postage37{width:98px;min-height:126px}.letter-read-head37 .postage37>svg{width:65px;height:54px}.letter-read-head37>div:last-child{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.tree-letter37,.tree-panel34.revealing34 .tree-letter37,.letter-fold-paper37,.letter-fold-envelope37{animation:none!important;opacity:1}}
 </style>
 </head>
 <body>
@@ -1740,12 +1767,13 @@ body.pg0.cards-view34 .today-toolbar33{margin-bottom:4px}
 <main id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
 <div id="printArea"></div>
+<script src="letters.js"></script>
 <script>
 /* =========================================================
    KAIZEN MỖI NGÀY · TQ02
    Một file HTML, dữ liệu lưu trong trình duyệt của từng máy.
    ========================================================= */
-var APP_VER = 'TQ36';
+var APP_VER = 'TQ37';
 var APP_NAME = 'Shin routine';
 var KEY = 'kzmn-data', KEY_DEMO = 'kzmn-demo', KEY_MODE = 'kzmn-mode';
 var DEMO_CLASS = 'DEMO-KZ';
@@ -2810,7 +2838,7 @@ var SAVE_STATE32='idle',SAVE_WARNING32=false,LOAD_ISSUE32=null,RAW_RECOVERY32=''
 var SW_REG32=null,SW_READY32=false,SW_ERROR32='',SW_WAITING32=null,SW_DISMISSED32=false,UPDATE_APPLY32=false,SW_STARTED32=false;
 function defState(){
   return {v:3, ver:APP_VER, name:'', cls:'', teacher:null, created:dk(), sound:true, ciTime:'21:00', ciCal:false, calAsked:0,
-    habits:{}, order:[], custom:{}, cseq:0, les:{}, howSeen:{}, slots:[null,null,null,null,null], notes:{}, bf:{}, mood:{}, prDone:{}, seen:{}, storeView:'list', homeView:'cards', compactUI33:true, ciDrafts:{}, journalStars:{}, log:{}, ev:{}, why:{}, ci:{}, xp:0, ins:0, tstamps:[], week:{}, opens:{}, saved:0, learnedXP:{}, bu:{}};
+    habits:{}, order:[], custom:{}, cseq:0, les:{}, howSeen:{}, slots:[null,null,null,null,null], notes:{}, bf:{}, mood:{}, prDone:{}, seen:{}, storeView:'list', homeView:'cards', compactUI33:true, ciDrafts:{}, journalStars:{}, stampLetters:{}, log:{}, ev:{}, why:{}, ci:{}, xp:0, ins:0, tstamps:[], week:{}, opens:{}, saved:0, learnedXP:{}, bu:{}};
 }
 function migrate(st){
   /* Dữ liệu từ TQ01–TQ02: thêm cấp thẻ, giữ nguyên nhật ký */
@@ -2824,6 +2852,7 @@ function migrate(st){
   if(!st.howSeen){ st.howSeen={}; for(var hk in st.habits) st.howSeen[hk]=1; }
   if(st.guideOff===undefined) st.guideOff = Object.keys(st.ci||{}).length>0;
   if(!st.compactUI33){st.homeView='cards';st.compactUI33=true;}else st.homeView=st.homeView==='list'?'list':'cards'; st.ciDrafts=st.ciDrafts||{};st.journalStars=st.journalStars||{};
+  st.stampLetters=st.stampLetters||{};
   st.v=5; return st;
 }
 function stateObject32(v){return !!v&&typeof v==='object'&&!Array.isArray(v);}
@@ -2831,7 +2860,7 @@ function validDate32(d){if(typeof d!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(d))r
 function validateState32(d){
   if(!stateObject32(d)||typeof d.name!=='string'||!stateObject32(d.habits)||!stateObject32(d.log)||!Array.isArray(d.order))throw Error('Tập tin không có dữ liệu Shin routine hợp lệ.');
   function walk(o,depth){if(depth>30)throw Error('Cấu trúc tập tin quá phức tạp.');if(o&&typeof o==='object')Object.keys(o).forEach(function(k){if(k==='__proto__'||k==='prototype'||k==='constructor')throw Error('Cấu trúc tập tin không hợp lệ.');walk(o[k],depth+1);});}walk(d,0);
-  var maps=['custom','notes','why','bf','ci','week','treeCards','journalStars','ciDrafts','mood','ev','les','opens','seen','learnedXP','bu'];maps.forEach(function(k){if(d[k]!==undefined&&!stateObject32(d[k]))throw Error('Mục '+k+' trong tập tin không hợp lệ.');});
+  var maps=['custom','notes','why','bf','ci','week','treeCards','journalStars','ciDrafts','stampLetters','mood','ev','les','opens','seen','learnedXP','bu'];maps.forEach(function(k){if(d[k]!==undefined&&!stateObject32(d[k]))throw Error('Mục '+k+' trong tập tin không hợp lệ.');});
   if(!validDate32(d.created))throw Error('Ngày bắt đầu trong bản sao không hợp lệ.');
   if(d.order.some(function(id){return typeof id!=='string';}))throw Error('Danh sách thẻ không hợp lệ.');
   Object.keys(d.habits).forEach(function(id){var u=d.habits[id];if(!stateObject32(u)||!validDate32(u.since))throw Error('Dữ liệu thói quen không hợp lệ.');if(u.lv!==undefined&&(!Number.isInteger(u.lv)||u.lv<1||u.lv>3))throw Error('Cấp thẻ không hợp lệ.');['anchor','act','who'].forEach(function(k){if(u[k]!==undefined&&typeof u[k]!=='string')throw Error('Nội dung thẻ không hợp lệ.');});});
@@ -2848,6 +2877,7 @@ function validateState32(d){
   Object.keys(d.week||{}).forEach(function(day){var c=d.week[day];if(!validDate32(day)||!stateObject32(c)||(c.win!==undefined&&typeof c.win!=='string')||(c.buddy!==undefined&&typeof c.buddy!=='string'))throw Error('Thẻ tuần trong bản sao không hợp lệ.');});
   Object.keys(d.treeCards||{}).forEach(function(id){var a=d.treeCards[id];if(!safeId(id)||!stateObject32(a)||typeof a.name!=='string'||[2,3].indexOf(a.lv)<0||!validDate32(a.date)||typeof a.color!=='string'||!/^#[0-9a-fA-F]{6}$/.test(a.color))throw Error('Thẻ thành tựu trong bản sao không hợp lệ.');['reflection','note','anchor','act','fullName'].forEach(function(k){if(a[k]!==undefined&&typeof a[k]!=='string')throw Error('Nội dung thành tựu không hợp lệ.');});});
   Object.keys(d.ciDrafts||{}).forEach(function(day){var a=d.ciDrafts[day];if(!validDate32(day)||!stateObject32(a)||(a.note!==undefined&&typeof a.note!=='string'))throw Error('Bản nháp check-in không hợp lệ.');if(a.notes!==undefined&&!stateObject32(a.notes))throw Error('Ghi chú bản nháp không hợp lệ.');Object.keys(a.notes||{}).forEach(function(id){if(typeof a.notes[id]!=='string')throw Error('Nội dung bản nháp không hợp lệ.');});});
+  validateStampLetters37(d.stampLetters||{});
   return d;
 }
 function load(){
@@ -2957,9 +2987,9 @@ function renderTop(bump){
 }
 function renderNav(){ renderBar(); }
 function renderBar(){
-  var b=$('#abar'); if(!b) return; var d=dk(), done=!!S.ci[d], soon=ciSoon();
+  var b=$('#abar'); if(!b) return; var d=dk(), state=ciPhase36(), done=state==='done';
   b.innerHTML='<div class="tabs3">'+PAGES.map(function(p,i){ return '<button class="'+(PG===i?'on':'')+'" data-act="page" data-v="'+i+'" aria-current="'+(PG===i?'page':'false')+'">'+(p[0]==='prog'?journeyIcon34():ic(p[0]))+'<span>'+p[1]+'</span></button>'; }).join('')+'</div>'+
-    (handList().length||keepIds().length||done ? '<button class="ckb '+(done?'done':soon?'soon':'')+'" data-act="ci" data-v="'+d+'" aria-label="'+(done?'Đã check-in tối nay':'Check-in tối, lúc '+esc(S.ciTime))+'">'+
+    (handList().length||keepIds().length||done ? '<button class="ckb '+(state==='idle'?'':state)+'" data-ci-state="'+state+'" data-ci-time="'+esc(S.ciTime)+'" data-act="ci" data-v="'+d+'" aria-label="'+(done?'Đã check-in tối nay':state==='due'?'Đến giờ check-in, lúc '+esc(S.ciTime)+', chưa check-in':'Check-in tối, lúc '+esc(S.ciTime))+'">'+
       (done?sealDone()+'<span><b>Xong</b><small>Check-in</small></span>':ic('moon')+'<span><b>Check-in</b><small>'+esc(S.ciTime)+'</small></span>')+'</button>' : '');
 }
 function sealDone(){ return '<svg viewBox="0 0 60 60" aria-hidden="true" style="transform:rotate(-8deg)"><circle cx="30" cy="30" r="24" fill="none" stroke="#C8372D" stroke-width="3.2"/><circle cx="30" cy="30" r="19.5" fill="#C8372D" opacity=".08"/><text x="30" y="38" text-anchor="middle" style="'+FONT_JP+';font-weight:700" font-size="22" fill="#C8372D">済</text></svg>'; }
@@ -3339,7 +3369,23 @@ var SLOT=0, VDAY=null, SBACK=false;
 function inApp(){ var u=navigator.userAgent||''; return /Zalo|FBAN|FBAV|Messenger|Instagram|Line\//i.test(u); }
 function curDay(){ return VDAY||dk(); }
 function handList(){ return S.slots.filter(function(id){ return !!id && S.habits[id] && S.habits[id].status!=='pause'; }); }
-function ciSoon(){ var p=(S.ciTime||'21:00').split(':'), n=new Date(), m=n.getHours()*60+n.getMinutes(); return m >= (+p[0])*60+(+p[1])-60; }
+function ciPhase36(now){
+  var n=now||new Date(),d=dk(n);if(S.ci[d])return 'done';
+  var p=(S.ciTime||'21:00').split(':'),target=new Date(n);target.setHours(+p[0],+p[1],0,0);
+  var remaining=target.getTime()-n.getTime();return remaining<=0?'due':remaining<=60*60000?'soon':'idle';
+}
+var CI_CLOCK36=null;
+function refreshCheckin36(){
+  if(!S||document.hidden)return;var button=$('.ckb');if(!button)return;
+  if(button.getAttribute('data-ci-state')!==ciPhase36()||button.getAttribute('data-v')!==dk()||button.getAttribute('data-ci-time')!==S.ciTime)renderBar();
+}
+function scheduleCheckin36(){
+  clearTimeout(CI_CLOCK36);if(document.hidden)return;refreshCheckin36();
+  CI_CLOCK36=setTimeout(scheduleCheckin36,60000-Date.now()%60000+20);
+}
+document.addEventListener('visibilitychange',scheduleCheckin36);
+window.addEventListener('pageshow',scheduleCheckin36);
+window.addEventListener('focus',scheduleCheckin36);
 function vToday(){
   var day=dk(),list=handList(),n=list.length,recorded=list.filter(function(id){return !!mark(day,id);}).length,h='';
   if(inApp())h+='<div class="banner"><b>Mở bằng Safari hoặc Chrome để giữ bài làm.</b></div>';
@@ -3500,12 +3546,12 @@ function openOv(html,mini){
   closeOv(true);
   var o=document.createElement('div'); o.className='ov'; o.setAttribute('role','dialog'); o.setAttribute('aria-modal','true');
   o.innerHTML='<div class="sheet'+(mini?' sheet--mini':'')+'">'+html+'</div>';
-  o.addEventListener('click',function(e){ if(e.target===o){if(!restoreHabit33()){closeOv();render();}} });
+  o.addEventListener('click',function(e){ if(e.target===o){if(LETTER_FLOW37){letterBack37();return;}if(!restoreHabit33()){closeOv();render();}} });
   document.body.appendChild(o); OV=o; document.body.style.overflow='hidden';
   return o;
 }
 function openMini(inner){ return openOv('<div class="sh__h"><button class="x" data-act="close" aria-label="Đóng">'+ic('x')+'</button></div>'+inner, true); }
-function closeOv(silent){TREE_DETAIL30=null; if(CI&&CI.mode==='review'&&!CI.done)stashCI29(); NBOPEN=false; if(OV){ OV.remove(); OV=null; } document.body.style.overflow=''; if(!silent){ ST=null; CI=null; } }
+function closeOv(silent){if(LETTER_FLOW37){stashLetterDraft37(true);clearTimeout(LETTER_TIMER37);LETTER_FLOW37=null;}TREE_DETAIL30=null; if(CI&&CI.mode==='review'&&!CI.done)stashCI29(); NBOPEN=false; if(OV){ OV.remove(); OV=null; } document.body.style.overflow=''; if(!silent){ ST=null; CI=null; } }
 function sheetSet(html){ if(OV){ var s=OV.querySelector('.sheet'); s.innerHTML=html; s.scrollTop=0; } }
 
 /* =========================================================
@@ -3650,9 +3696,9 @@ function drawHow(){
   var h='<div class="sh__h"><button class="back" data-act="card" data-v="'+HW.id+'" aria-label="Về thẻ">'+ic('back')+'</button><div class="prog">'+HW.cards.map(function(_,i){ return '<i class="'+(i<HW.i?'done':i===HW.i?'on':'')+'"></i>'; }).join('')+'</div><button class="x" data-act="close" aria-label="Đóng">'+ic('x')+'</button></div>'+
     '<div class="howhero g'+x.g+'">'+hico(HW.id)+'<div><small>CÁCH LÀM · '+(HW.i+1)+'/'+n+'</small><b>'+esc(x.t)+'</b></div></div>'+
     '<div class="hwc lc">'+c[1]+'</div>'+
-    '<div class="sbar">'+(HW.i>0?'<button class="btn btn--ghost" data-act="hwPrev">'+ic('back')+'Trước</button>':'<span></span>')+
+    '<div class="sbar'+(!last?' how-step-nav':'')+'">'+(HW.i>0?'<button class="how-step-link" data-act="hwPrev">'+ic('back')+'Trước</button>':'<span></span>')+
     (last ? (H(HW.id)?'<button class="btn" data-act="card" data-v="'+HW.id+'">Xong</button>':'<button class="btn invite" data-act="start" data-v="'+HW.id+'">Rèn thẻ này</button>')
-          : '<button class="btn" data-act="hwNext">Tiếp: '+esc(HW.cards[HW.i+1][0])+' ›</button>')+'</div>';
+          : '<button class="how-step-link" data-act="hwNext">Tiếp'+ic('arrow')+'</button>')+'</div>';
   sheetSet(h); OV.querySelector('.sheet').classList.add('howpg');
   if($('#prBox')) prStart(HW.id);
 }
@@ -3854,9 +3900,10 @@ function lvGo(id){
   if(u.lv===1){ if(v.length<2){ err.style.display='block'; err.textContent='Nhập tên bạn xác nhận.'; return; } }
   else { var okc = v===tcodeFor(S.name,t) || v===tcodeFor(S.name,addD(t,-1)); if(!okc){ err.style.display='block'; err.textContent='Mã chưa đúng. Nhờ thầy cô kiểm tra lại tên của bạn.'; return; } }
   u.cf=u.cf||{}; u.cf[u.lv+1]={by:u.lv===1?v:'Thầy cô',d:t};
+  var oldStamps37=Object.keys(S.stampLetters||{});
   u.lv++; u.lvSince=t; save(true); fanfare(); bigStamp(u.lv===3?'t':'f');
   addPts(u.lv===3?50:30,0,'Thẻ lên cấp '+LV_NAME[u.lv]+'!');
-  if(u.lv===2){ showTreeAward(id); return; }
+  if(u.lv===2){var newStamp37=STAMP_MILESTONES37.filter(function(m){return S.stampLetters[m]&&oldStamps37.indexOf(String(m))<0;})[0];showTreeAward(id,newStamp37);return;}
   offerTier(id);
 }
 function offerTier(id){
@@ -4533,6 +4580,7 @@ function calPrompt(fromStart){
 function bkDays(){ return diffD(S.lastBackup||S.created||dk(),dk()); }
 function bkDue(){ if(DEMO) return false; if(S.bkSnooze && dk()<S.bkSnooze) return false; return bkDays()>=7; }
 function backup(){
+  syncTree();
   try{var old=S.lastBackup;S.lastBackup=dk();S.bkSnooze='';var data=JSON.parse(JSON.stringify(S));var envelope={format:'shin-routine-backup',schema:1,appVersion:APP_VER,exportedAt:new Date().toISOString(),data:data};downloadData32(JSON.stringify(envelope,null,2),'Shin-ban-sao-'+(noMark(S.name).replace(/[^a-zA-Z0-9-]+/g,'-')||'hoc-vien')+'-'+dk()+'.json');save(true);renderTop();refreshAll();toast('Đã tạo file bản sao. Hãy giữ file vừa tải.');}catch(e){S.lastBackup=old;toast('Chưa tạo được bản sao. Bạn thử lại nhé.');}
 }
 function previewRestore32(parsed){
@@ -4544,7 +4592,7 @@ function restore(f){if(!f)return;if(f.size>20*1024*1024){toast('Tập tin quá l
 function applyRestore32(){
   if(!RESTORE_PENDING32)return;var candidate=RESTORE_PENDING32,key=DEMO?KEY_DEMO:KEY;
   try{var old=localStorage.getItem(key);if(old)localStorage.setItem(key+'-before-restore',old);candidate.saved=Date.now();candidate.ver=APP_VER;localStorage.setItem(key,JSON.stringify(candidate));}catch(e){toast('Chưa lưu được bản khôi phục. Bài làm hiện tại vẫn được giữ nguyên.');return;}
-  CI=null;NT=null;ST=null;RETCI=null;CARD=null;RESTORE_PENDING32=null;LOAD_ISSUE32=null;RAW_RECOVERY32='';SAVE_BLOCK=false;S=candidate;regCustom();closeOv(true);PG=0;JOURNAL_HABIT31='all';JOURNAL_MODE31='day';JOURNEY_TAB31='week';KPI_LAST=kpiValues();setSaveState32('saved');render();window.scrollTo(0,0);toast('Đã khôi phục bài làm.');
+  CI=null;NT=null;ST=null;RETCI=null;CARD=null;RESTORE_PENDING32=null;LOAD_ISSUE32=null;RAW_RECOVERY32='';SAVE_BLOCK=false;closeOv(true);S=candidate;regCustom();syncTree();save(true);PG=0;JOURNAL_HABIT31='all';JOURNAL_MODE31='day';JOURNEY_TAB31='week';KPI_LAST=kpiValues();render();window.scrollTo(0,0);toast('Đã khôi phục bài làm.');
 }
 function previousRestore32(){try{var raw=localStorage.getItem((DEMO?KEY_DEMO:KEY)+'-before-restore');if(!raw){toast('Chưa có bản trước lần khôi phục.');return;}previewRestore32(JSON.parse(raw));}catch(e){toast('Chưa đọc được bản dự phòng này.');}}
 function hasPrevious32(){try{return !!localStorage.getItem((DEMO?KEY_DEMO:KEY)+'-before-restore');}catch(e){return false;}}
@@ -4559,8 +4607,8 @@ function copyText(t,ok){
 }
 function fbCopy(t){ var a=document.createElement('textarea'); a.value=t; a.style.position='fixed'; a.style.opacity='0'; document.body.appendChild(a); a.select(); try{ document.execCommand('copy'); }catch(e){} a.remove(); }
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape' && OV){if(HABIT_RETURN33){e.preventDefault();e.stopImmediatePropagation();restoreHabit33();return;}if(TREE_DETAIL30){e.preventDefault();e.stopImmediatePropagation();treeBack30();return;}closeOv();render();}
-  if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('[data-act="treeCard30"][role="button"]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}
+  if(e.key==='Escape' && OV){if(LETTER_FLOW37){e.preventDefault();e.stopImmediatePropagation();letterBack37();return;}if(HABIT_RETURN33){e.preventDefault();e.stopImmediatePropagation();restoreHabit33();return;}if(TREE_DETAIL30){e.preventDefault();e.stopImmediatePropagation();treeBack30();return;}closeOv();render();}
+  if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('[data-act="treeCard30"][role="button"],[data-act="letterRead37"][role="button"]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}
   if((e.key==='Enter'||e.key===' ') && e.target.classList && e.target.classList.contains('plot')){ e.preventDefault(); e.target.dispatchEvent(new MouseEvent('click',{bubbles:true})); }
 });
 
@@ -4571,6 +4619,13 @@ document.addEventListener('click',function(e){
   var el=e.target.closest('[data-act]'); if(!el) return;
   var a=el.getAttribute('data-act'), v=el.getAttribute('data-v');
   switch(a){
+    case 'stampPending37': openPendingStamps37();break;
+    case 'stampOpen37': var sr37=(S.stampLetters||{})[v];if(sr37)openStamp37(+v,String(sr37.draft||'').trim()?'compose':'gift');break;
+    case 'stampWrite37': openStamp37(+v,'compose',el.getAttribute('data-habit'));break;
+    case 'letterCompose37': if(LETTER_FLOW37){LETTER_FLOW37.mode='compose';drawLetter37();}break;
+    case 'letterSeal37': sealLetter37();break;
+    case 'letterBack37': letterBack37();break;
+    case 'letterRead37': if((S.stampLetters||{})[v]&&S.stampLetters[v].letter)openStamp37(+v,'read');break;
     case 'habitTab33': if(CARD&&(v==='card'||v==='journal')){CARD.tab=v;drawCard();}break;
     case 'habitMore33': if(CARD){CARD.timelineLimit=(CARD.timelineLimit||6)+6;var hs=$('.sheet').scrollTop;drawCard();$('.sheet').scrollTop=hs;}break;
     case 'journalSaved33': JOURNAL_MODE31=JOURNAL_MODE31==='saved'?'day':'saved';JOURNAL_HABIT31='all';JOURNAL_LIMIT31=20;renderPage();window.scrollTo(0,0);break;
@@ -4737,6 +4792,7 @@ document.addEventListener('input',function(e){
   else if(k==='cuWhy'){ ST.why=v; var wc2=$('#cuWc'); if(wc2){ var n2=words(v); wc2.textContent= n2>=3?'✓ '+n2+' chữ':'Từ 3 chữ'; } stRefresh(); }
   else if(k==='lsW'){ if(LS) LS.w=v; }
   else if(k==='note'){ NT.text=v; ntRefresh(); }
+  else if(k==='letterDraft37'){letterDraftInput37();}
   else if(k==='ciNote29'){if(CI&&!CI.done){CI.notes[e.target.getAttribute('data-id')]=v;updateCIFooter34();stashCI29();}}
   else if(k==='ciMemo29'){if(CI&&!CI.done){CI.note=v;stashCI29();}}
   else if(k==='ciN'){ CI.notes[CI.list[CI.i]]=v; var s=ciState(), st=$('.sheet .sbar .st'), b=$('.sheet .sbar .btn'); if(st&&b){ st.textContent=s.ok?'✓ Sẵn sàng':s.msg; st.className='st '+(s.ok?'okk':'miss'); b.disabled=!s.ok; } }
@@ -4745,7 +4801,7 @@ document.addEventListener('input',function(e){
   else if(k==='wkWin'){ S.week[WK].win=v; save(); }
   else if(k==='name'){ if(v.trim()){ S.name=v.trim(); save(); } }
   else if(k==='cls'){ S.cls=v.trim(); save(); }
-  else if(k==='ciTime'){ if(v){ S.ciTime=v; save(); $$('a[data-act="calDone"]').forEach(function(x){ x.href=gcalUrl(); }); } }
+  else if(k==='ciTime'){ if(v){ S.ciTime=v; save(); refreshCheckin36(); $$('a[data-act="calDone"]').forEach(function(x){ x.href=gcalUrl(); }); } }
   else if(k==='prRng'){ PR.val=+v; PR.res=''; var tt=$('.pr__time'); if(tt) tt.textContent=Math.floor(PR.val/60)+':'+pad(PR.val%60); }
   else if(k==='tName'){ $('#tCode').textContent = v.trim().length>1 ? tcodeFor(v,dk()) : '····'; }
 });
@@ -4824,12 +4880,14 @@ function syncTree(){
     if(note===undefined){var dates=Object.keys(S.notes||{}).filter(function(d){return d<=date&&(S.notes[d]||{})[id];}).sort();note=dates.length?S.notes[dates[dates.length-1]][id]:'';}
     S.treeCards[id]=Object.assign({},old,{id:id,name:sname(id),fullName:hname(id),color:GCOL[x.g]||GCOL[5],g:x.g,icon:x.custom?'cu_'+x.icon:id,custom:!!x.custom,lv:Math.max(old.lv||0,u.lv),date:date,note:note,anchor:old.anchor===undefined?u.anchor:old.anchor,act:old.act===undefined?u.act:old.act,level3date:old.level3date||((u.cf||{})[3]||{}).d||'',mastered:!!old.mastered||!!u.master});
   });
+  syncLetterStamps37();
 }
 function treeSVG(fresh,interactive){
   var all=treeItems30(),n=all.length,stage=treeStage30(n),items=all.length>20?all.slice(-20):all,uid='tree30-'+(++TREE_SEQ30),ground=352;
   if(fresh&&S.treeCards[fresh]&&!items.some(function(a){return a.id===fresh;}))items=items.slice(1).concat([S.treeCards[fresh]]);
   var stems=stage===0?[{x:211,top:280,w:5}]:stage===1?[{x:214,top:184,w:7}]:stage===2?[{x:215,top:101,w:8}]:stage===3?[{x:168,top:131,w:6},{x:230,top:49,w:9}]:[{x:113,top:147,w:6},{x:180,top:62,w:8},{x:252,top:34,w:9},{x:317,top:137,w:6}];
   var trunks='',branches='',leaves='',tags='';
+  var letterLayer37=treeLettersSVG37(stage,stems,sx,items.length,interactive);branches+=letterLayer37.branches;tags+=letterLayer37.tags;
   function sx(st,y){var t=(ground-y)/(ground-st.top);return (1-t)*(1-t)*st.x+2*(1-t)*t*(st.x-13)+t*t*(st.x+4);}
   function leaf(x,y,side,scale,angle){return '<g transform="translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+angle+') scale('+(side*scale)+' '+scale+')"><path d="M0 0C9-17 24-24 38-22C30-8 16 0 0 0Z" fill="#87A880"/><path d="M0 0C12-4 26 1 35 12C18 13 7 9 0 0Z" fill="#A4BC92"/><path d="M0 0C10-8 20-14 30-17" fill="none" stroke="#74976E" stroke-width=".8" opacity=".55"/></g>';}
   stems.forEach(function(st,i){var control=st.x-13,mid=(ground+st.top)/2;trunks+='<path d="M'+st.x+' '+ground+'Q'+control+' '+mid+' '+(st.x+4)+' '+st.top+'" fill="none" stroke="'+(i===stems.length-1?'#547D66':'#76987B')+'" stroke-width="'+st.w+'" stroke-linecap="round"/><path d="M'+(st.x-2)+' '+(ground-4)+'Q'+(control-2)+' '+mid+' '+(st.x+2)+' '+(st.top+3)+'" fill="none" stroke="#BDD0AA" stroke-width="1.2" opacity=".7"/>';
@@ -4849,9 +4907,10 @@ function treeSVG(fresh,interactive){
 }
 function treePanel(){
   syncTree();var items=treeItems30(),n=items.length,stage=treeStage30(n),st=TREE_STAGES30[stage];
-  var reveal=TREE_REPLAY34;TREE_REPLAY34=false;
-  var h='<section class="tree-panel tree-panel30 tree-panel34'+(reveal?' revealing34':'')+'"><div class="tree-count33">'+n+' thẻ đã treo</div>'+treeSVG(null,true)+'<div class="tree-growth30"><b>'+st.name+'</b></div>'+shinTree34(stage);
+  var reveal=TREE_REPLAY34,letterCount37=writtenLetters37().length;TREE_REPLAY34=false;
+  var h='<section class="tree-panel tree-panel30 tree-panel34'+(reveal?' revealing34':'')+'"><div class="tree-count33">'+n+' thẻ đã treo'+(letterCount37?' · '+letterCount37+' lá thư':'')+'</div>'+treeSVG(null,true)+'<div class="tree-growth30"><b>'+st.name+'</b></div>'+shinTree34(stage);
   if(!n)h+='<p>Mỗi thẻ đạt cấp 2 sẽ được treo lên cây.</p>';
+  h+=pendingStampRow37()+letterList37();
   if(n>20)h+='<details class="tree-collection30"><summary>Tất cả '+n+' thẻ thành tựu</summary><div class="tree-collection-grid30">'+items.slice().reverse().map(function(a){return '<button data-act="treeCard30" data-v="'+esc(a.id)+'"><i style="background:'+a.color+'"></i><span><b>'+esc(a.name)+'</b><small>'+treeDate30(a.date)+'</small></span><em>Cấp '+a.lv+'</em></button>';}).join('')+'</div></details>';
   if(n)h+='<button class="tree-save30" data-act="treeImage30">'+ic('down')+'Lưu ảnh thành tựu</button>';
   return h+'</section>';
@@ -4861,9 +4920,11 @@ function openTreeCard30(id){
   openOv('<div class="sh__h"><b>Thẻ thành tựu</b><button class="x" data-act="treeBack30" aria-label="Về cây thành tựu">'+ic('x')+'</button></div><div class="tree-detail30"><div class="tree-detail-icon30" style="background:'+a.color+'">'+glyph(a.icon||id,a.color)+'</div><p class="tree-detail-eyebrow30">MỘT CHẶNG KIÊN TRÌ</p><h2>'+esc(a.fullName||a.name)+'</h2><span class="tree-detail-level30">Cấp '+a.lv+(a.mastered?' · Thành nếp':a.lv>=3?' · Vững tay':' · Làm quen')+'</span><dl><div><dt>Được treo lên cây</dt><dd>'+treeDate30(a.date)+'</dd></div>'+(a.level3date?'<div><dt>Đạt cấp 3</dt><dd>'+treeDate30(a.level3date)+'</dd></div>':'')+'</dl>'+(a.act?'<div class="tree-memory-action30"><small>VIỆC NHỎ ĐÃ BẮT ĐẦU</small>'+(a.anchor?'<p>Khi '+esc(a.anchor)+'</p>':'')+'<b>'+esc(a.act)+'</b></div>':'')+(a.note?'<blockquote><small>MỘT GHI CHÚ CỦA BẠN</small><p>“'+esc(a.note)+'”</p></blockquote>':'')+'<details class="tree-reflection30"'+(a.reflection?' open':'')+'><summary>Một điều bạn muốn ghi nhớ</summary><label class="sr" for="treeReflection30">Kỷ niệm về thành tựu này</label><textarea class="inp" id="treeReflection30" maxlength="240" rows="3" placeholder="Ví dụ: Lúc đầu mình rất ngại, giờ đã tự tin hơn.">'+esc(a.reflection||'')+'</textarea><button class="btn btn--soft btn--sm" data-act="treeReflection30" data-v="'+esc(id)+'">Lưu kỷ niệm</button></details><p class="tree-detail-note30">Thẻ vẫn ở trên cây khi bạn cất khỏi tay.</p></div><div class="sbar"><button class="btn btn--wide" data-act="treeBack30">Về cây thành tựu</button></div>',true);TREE_DETAIL30=id;
 }
 function treeBack30(){TREE_DETAIL30=null;if(TREE_ORIGIN31==='journey'){closeOv();PG=1;render();var collection=$('.tree-collection30');if(collection)collection.open=TREE_COLLECTION31;window.scrollTo(0,TREE_SCROLL31);}else{NBTAB='sum';openNb();}}
-function showTreeAward(id){
+function showTreeAward(id,stamp){
   syncTree();var a=S.treeCards[id],n=treeItems30().length,stage=treeStage30(n);
-  openMini('<div class="tree-award tree-award30 center"><small>MỘT CHẶNG KIÊN TRÌ</small><h2>Một thẻ mới, cây lớn thêm.</h2>'+treeSVG(id,false)+'<p><b>'+esc(a?a.name:hname(id))+'</b> đã đạt cấp 2 và được treo lên cây.</p><div class="tree-award-stage30">'+TREE_STAGES30[stage].name+' · '+n+' thẻ đã treo</div><button class="btn btn--wide" data-act="treeContinue" data-v="'+id+'">Tiếp tục</button><button class="week-link" data-act="treeView">Xem cây thành tựu</button></div>');
+  var gift=stamp&&S.stampLetters[stamp]&&!S.stampLetters[stamp].letter;
+  if(gift){var oldToast37=$('#toast');if(oldToast37)oldToast37.classList.remove('show');}
+  openMini('<div class="tree-award tree-award30 center"><small>MỘT CHẶNG KIÊN TRÌ</small><h2>Một thẻ mới, cây lớn thêm.</h2>'+treeSVG(id,false)+'<p><b>'+esc(a?a.name:hname(id))+'</b> đã đạt cấp 2 và được treo lên cây.</p><div class="tree-award-stage30">'+TREE_STAGES30[stage].name+' · '+n+' thẻ đã treo</div>'+(gift?'<div class="stamp-award37">'+stampHTML37(stamp,true)+'<span><b>Bạn được tặng một con tem</b><small>'+esc(STAMP_CATALOG37[stamp].caption)+'</small></span></div><button class="btn btn--wide" data-act="stampWrite37" data-v="'+stamp+'" data-habit="'+esc(id)+'">Viết một lời nhắn</button>':'')+'<button class="btn '+(gift?'btn--ghost ':'')+'btn--wide" data-act="treeContinue" data-v="'+id+'">'+(gift?'Để sau':'Tiếp tục')+'</button><button class="week-link" data-act="treeView">Xem cây thành tựu</button></div>');
 }
 var TREE_EXPORTING30=false;
 async function treeImage30(){
@@ -5053,11 +5114,13 @@ document.addEventListener('click',function(e){
 });
 function fitDeck34(stage){
   var home=stage.closest('.home-cards'),dock=$('#sdots');if(!home||!dock||!CS[SLOT])return;
+  home.style.setProperty('--today-card-drop','5px');
   home.classList.remove('deck-tight34','deck-tighter34');
   var available=dock.getBoundingClientRect().top-stage.getBoundingClientRect().top-14;
-  if(available<=0)return;
+  if(available<=0){home.style.setProperty('--today-card-drop','0px');return;}
   if(CS[SLOT].offsetHeight>available)home.classList.add('deck-tight34');
   if(CS[SLOT].offsetHeight>available)home.classList.add('deck-tighter34');
+  if(CS[SLOT].offsetHeight>available)home.style.setProperty('--today-card-drop','0px');
   stage.style.height=(CS[SLOT].offsetHeight+10)+'px';
 }
 
@@ -5070,6 +5133,7 @@ load(); save(); KPI_LAST=kpiValues();
 new MutationObserver(function(){animateKPIs();}).observe(document.body,{childList:true,subtree:true});
 if('scrollRestoration' in history) history.scrollRestoration='manual';
 render(); window.scrollTo(0,0); splashBoot();
+scheduleCheckin36();
 function hashCI(){ if(S.name && location.hash==='#checkin'){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} setTimeout(function(){ openCI(dk()); },350); } }
 hashCI(); window.addEventListener('hashchange',hashCI);
 if('speechSynthesis' in window){ try{ speechSynthesis.getVoices(); }catch(e){} }
